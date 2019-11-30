@@ -1,0 +1,42 @@
+{
+  "name": "ts-algorithms",
+  "version": "1.0.0",
+  "description": "Typescript algorithms and Data Structures",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "prepare": "npm run test && npm run build && npm run docs",
+    "test": "jest --coverage",
+    "docs": "typedoc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Pencroff/ts-algorithms.git"
+  },
+  "keywords": [
+    "typescript",
+    "algorithms"
+  ],
+  "author": "@Pencroff (Sergey Daniloff)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pencroff/ts-algorithms/issues"
+  },
+  "homepage": "https://github.com/Pencroff/ts-algorithms#readme",
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "codecov": "^3.6.1",
+    "jest": "^24.9.0",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.2.0",
+    "typedoc": "^0.15.3",
+    "typescript": "^3.7.2"
+  }
+}
