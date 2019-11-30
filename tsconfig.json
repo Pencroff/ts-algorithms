@@ -13,7 +13,7 @@
     "importHelpers": true
   },
   "typedocOptions": {
-    "mode": "modules",
+    "mode": "file",
     "out": "docs"
   },
   "include": [

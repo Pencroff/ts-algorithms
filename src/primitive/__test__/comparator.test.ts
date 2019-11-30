@@ -2,7 +2,7 @@
  * Created by Pencroff on 30-Nov-2019.
  */
 
-import { genericComparator } from '../generic.comparator';
+import { genericComparator } from '../comparator';
 
 describe('generic comparator', () => {
   test('should support equal', () => {
