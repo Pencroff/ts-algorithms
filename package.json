@@ -11,7 +11,7 @@
     "build": "rimraf ./dist && tsc",
     "prepare": "npm run test && npm run build",
     "test": "jest --coverage",
-    "docs": "typedoc"
+    "docs": "rimraf ./docs && typedoc --exclude ./**/index.ts"
   },
   "repository": {
     "type": "git",
