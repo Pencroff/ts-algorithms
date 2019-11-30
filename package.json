@@ -9,9 +9,9 @@
   ],
   "scripts": {
     "build": "rimraf ./dist && tsc",
-    "prepare": "npm run test && npm run build && npm run docs",
+    "prepare": "npm run test && npm run build",
     "test": "jest --coverage",
-    "docs": "rimraf ./docs && typedoc"
+    "docs": "typedoc"
   },
   "repository": {
     "type": "git",
