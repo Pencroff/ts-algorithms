@@ -15,7 +15,7 @@
 export type ComparatorFn<T> = (a: T, b: T) => number;
 
 /**
- * Generic comparator
+ * Generic comparator, working for primitive types
  * @param a
  * @param b
  * @return {number} - check [[ComparatorFn]]

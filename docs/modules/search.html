@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>primitive | @pencroff/ts-algorithms</title>
+	<title>search | @pencroff/ts-algorithms</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,23 +56,16 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="primitive.html">primitive</a>
+					<a href="search.html">search</a>
 				</li>
 			</ul>
-			<h1>External module primitive</h1>
+			<h1>External module search</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Primitive module contain basic types used across algorithms and data structures</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -80,13 +73,14 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter"><a href="primitive.html#comparatorfn" class="tsd-kind-icon">Comparator<wbr>Fn</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter"><a href="search.html#indexoffn" class="tsd-kind-icon">Index<wbr>OfFn</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="primitive.html#genericcomparator" class="tsd-kind-icon">generic<wbr>Comparator</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="search.html#binaryindexof" class="tsd-kind-icon">binary<wbr>Index<wbr>Of</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="search.html#linearindexof" class="tsd-kind-icon">linear<wbr>Index<wbr>Of</a></li>
 							</ul>
 						</section>
 					</div>
@@ -95,45 +89,33 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
-					<a name="comparatorfn" class="tsd-anchor"></a>
-					<h3>Comparator<wbr>Fn</h3>
-					<div class="tsd-signature tsd-kind-icon">Comparator<wbr>Fn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<a name="indexoffn" class="tsd-anchor"></a>
+					<h3>Index<wbr>OfFn</h3>
+					<div class="tsd-signature tsd-kind-icon">Index<wbr>OfFn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f46a3c3/src/primitive/comparator.ts#L15">primitive/comparator.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f46a3c3/src/search/type.ts#L13">search/type.ts:13</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Comparator function expect two parameters with the same type</p>
-						</div>
-						<dl class="tsd-comment-tags">
-							<dt>returns</dt>
-							<dd><p>represent comparison operation, check below</p>
-								<ul>
-									<li>parameters equal - return zero</li>
-									<li>a less then b - return less then zero</li>
-									<li>a great then b - return great then zero</li>
-								</ul>
-							</dd>
-						</dl>
-					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, comparator<span class="tsd-signature-symbol">: </span><a href="primitive.html#comparatorfn" class="tsd-signature-type">ComparatorFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5>a: <span class="tsd-signature-type">T</span></h5>
+												<h5>collection: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
 											</li>
 											<li>
-												<h5>b: <span class="tsd-signature-type">T</span></h5>
+												<h5>value: <span class="tsd-signature-type">T</span></h5>
+											</li>
+											<li>
+												<h5>comparator: <a href="primitive.html#comparatorfn" class="tsd-signature-type">ComparatorFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -147,22 +129,24 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-					<a name="genericcomparator" class="tsd-anchor"></a>
-					<h3>generic<wbr>Comparator</h3>
+					<a name="binaryindexof" class="tsd-anchor"></a>
+					<h3>binary<wbr>Index<wbr>Of</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">generic<wbr>Comparator&lt;T&gt;<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">binary<wbr>Index<wbr>Of&lt;T&gt;<span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, comparator<span class="tsd-signature-symbol">?: </span><a href="primitive.html#comparatorfn" class="tsd-signature-type">ComparatorFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f46a3c3/src/primitive/comparator.ts#L23">primitive/comparator.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f46a3c3/src/search/binary.ts#L15">search/binary.ts:15</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Generic comparator, working for primitive types</p>
-								</div>
+								<dl class="tsd-comment-tags">
+									<dt>typeparam</dt>
+									<dd><p>of types T</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -173,16 +157,73 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <span class="tsd-signature-type">T</span></h5>
+									<h5>collection: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
-									<h5>b: <span class="tsd-signature-type">T</span></h5>
+									<h5>v: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>searching value</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> comparator: <a href="primitive.html#comparatorfn" class="tsd-signature-type">ComparatorFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;genericComparator</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>check <a href="primitive.html#comparatorfn">ComparatorFn</a></p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<ul>
-								<li>check <a href="primitive.html#comparatorfn">ComparatorFn</a></li>
+							<p>index of found element, -1 if not found</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+					<a name="linearindexof" class="tsd-anchor"></a>
+					<h3>linear<wbr>Index<wbr>Of</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">linear<wbr>Index<wbr>Of&lt;T&gt;<span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, comparator<span class="tsd-signature-symbol">?: </span><a href="primitive.html#comparatorfn" class="tsd-signature-type">ComparatorFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f46a3c3/src/search/linear.ts#L23">search/linear.ts:23</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<h2 id="linear-search">Linear Search</h2>
+									<p>In computer science, linear search or sequential search is a
+										method for finding a target value within a list. It sequentially
+										checks each element of the list for the target value until a
+										match is found or until all the elements have been searched.
+										Linear search runs in at worst linear time and makes at most <code>n</code>
+									comparisons, where <code>n</code> is the length of the list.</p>
+								</div>
+								<p> <img src="https://www.tutorialspoint.com/data_structures_algorithms/images/linear_search.gif" alt="Linear Search"></p>
+								<h3 id="complexity">Complexity</h3>
+								<p><strong>Time Complexity</strong>: <code>O(n)</code> - since in worst case we&#39;re checking each element
+								exactly once.</p>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
 							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>collection: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5>v: <span class="tsd-signature-type">T</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> comparator: <a href="primitive.html#comparatorfn" class="tsd-signature-type">ComparatorFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;genericComparator</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -194,10 +235,10 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="primitive.html">primitive</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="search.html">search</a>
 					</li>
 				</ul>
@@ -205,10 +246,13 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="primitive.html#comparatorfn" class="tsd-kind-icon">Comparator<wbr>Fn</a>
+						<a href="search.html#indexoffn" class="tsd-kind-icon">Index<wbr>OfFn</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="primitive.html#genericcomparator" class="tsd-kind-icon">generic<wbr>Comparator</a>
+						<a href="search.html#binaryindexof" class="tsd-kind-icon">binary<wbr>Index<wbr>Of</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="search.html#linearindexof" class="tsd-kind-icon">linear<wbr>Index<wbr>Of</a>
 					</li>
 				</ul>
 			</nav>

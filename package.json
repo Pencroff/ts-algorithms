@@ -37,7 +37,7 @@
     "np": "^4.0.2",
     "rimraf": "^3.0.0",
     "ts-jest": "^24.2.0",
-    "typedoc": "^0.15.3",
+    "typedoc": "^0.14.2",
     "typedoc-plugin-external-module-name": "^2.1.0",
     "typescript": "^3.7.2"
   }
