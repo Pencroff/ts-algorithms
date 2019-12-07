@@ -24,6 +24,11 @@ import { ComparatorFn, genericComparator } from '../../primitive/comparator';
  *
  * * [Linear Search](https://en.wikipedia.org/wiki/Linear_search)
  *
+ * ```typescript
+ * import { linearIndexOf } from '@pencroff/ts-algorithms/dist/search/linear';
+ * const res = linearIndexOf([11, 5, 8], 8); // 2
+ * ```
+ *
  * @typeparam collection of types T
  * @param v searching value
  * @param [comparator] check [[ComparatorFn]], by default used [[genericComparator]]

@@ -28,19 +28,38 @@ import { ComparatorFn, genericComparator } from '../../primitive/comparator';
  *
  * * [Binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm)
  *
+ * ```typescript
+ * import { binaryIndexOf } from '@pencroff/ts-algorithms/dist/search/binary';
+ * const res = binaryIndexOf([3, 5, 8], 8); // 2
+ * ```
+ *
  * @typeparam collection of types T
  * @param v searching value
  * @param [comparator] check [[ComparatorFn]], by default used [[genericComparator]]
  * @return index of found element, -1 if not found
  */
 export function binaryIndexOf<T>(collection: T[], v:T, comparator: ComparatorFn<T> = genericComparator): number {
-  let res = -1;
   const len = collection.length;
-  for (let idx = 0; idx < len; idx += 1) {
-    if (comparator(collection[idx], v) === 0) {
-      res = idx;
-      break;
-    }
+  let first = 0;
+  let last = len - 1;
+  let mid = (first + last) >> 1;
+  let item;
+  if (len === 0 || collection[first] > v || collection[last] < v) {
+    return -1;
   }
-  return res;
+  while (first - last) {
+    item = collection[mid];
+    if (v === item) {
+      return mid;
+    } else if (v < item) {
+      last = mid;
+    } else {
+      first = mid + 1;
+    }
+    mid = (first + last) >> 1;
+  }
+  if (collection[last] !== v) {
+    return -1;
+  }
+  return last;
 }
