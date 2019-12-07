@@ -94,7 +94,7 @@
 					<div class="tsd-signature tsd-kind-icon">Index<wbr>OfFn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/03c5c46/src/algorithm/search/type.ts#L13">algorithm/search/type.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/6b62bd2/src/algorithm/search/type.ts#L13">algorithm/search/type.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -138,7 +138,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/03c5c46/src/algorithm/search/binary.ts#L15">algorithm/search/binary.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/6b62bd2/src/algorithm/search/binary.ts#L15">algorithm/search/binary.ts:15</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -170,9 +170,6 @@
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> comparator: <a href="primitive.html#comparatorfn" class="tsd-signature-type">ComparatorFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;genericComparator</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>check <a href="primitive.html#comparatorfn">ComparatorFn</a></p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -190,23 +187,32 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/03c5c46/src/algorithm/search/linear.ts#L23">algorithm/search/linear.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/6b62bd2/src/algorithm/search/linear.ts#L30">algorithm/search/linear.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<h2 id="linear-search">Linear Search</h2>
-									<p>In computer science, linear search or sequential search is a
-										method for finding a target value within a list. It sequentially
-										checks each element of the list for the target value until a
-										match is found or until all the elements have been searched.
-										Linear search runs in at worst linear time and makes at most <code>n</code>
-									comparisons, where <code>n</code> is the length of the list.</p>
+									<p>A linear search sequentially checks each element of the list until it finds an element that matches the target value.
+									If the algorithm reaches the end of the list, the search terminates unsuccessfully.</p>
 								</div>
 								<p> <img src="https://www.tutorialspoint.com/data_structures_algorithms/images/linear_search.gif" alt="Linear Search"></p>
 								<h3 id="complexity">Complexity</h3>
-								<p><strong>Time Complexity</strong>: <code>O(n)</code> - since in worst case we&#39;re checking each element
-								exactly once.</p>
+								<ul>
+									<li>Worst-case performance    - <code>O(n)</code></li>
+									<li>Best-case performance - <code>O(1)</code></li>
+									<li>Average performance - <code>O(n)</code></li>
+									<li>Worst-case space complexity - <code>O(1) iterative</code></li>
+								</ul>
+								<h3 id="reference">Reference</h3>
+								<ul>
+									<li><a href="https://en.wikipedia.org/wiki/Linear_search">Linear Search</a></li>
+								</ul>
+								<dl class="tsd-comment-tags">
+									<dt>typeparam</dt>
+									<dd><p>of types T</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -221,12 +227,16 @@
 								</li>
 								<li>
 									<h5>v: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>searching value</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> comparator: <a href="primitive.html#comparatorfn" class="tsd-signature-type">ComparatorFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;genericComparator</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>index of found element, -1 if not found</p>
 						</li>
 					</ul>
 				</section>

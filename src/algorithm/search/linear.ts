@@ -6,19 +6,27 @@
 import { ComparatorFn, genericComparator } from '../../primitive/comparator';
 /**
  * ## Linear Search
- * In computer science, linear search or sequential search is a
- * method for finding a target value within a list. It sequentially
- * checks each element of the list for the target value until a
- * match is found or until all the elements have been searched.
- * Linear search runs in at worst linear time and makes at most `n`
- * comparisons, where `n` is the length of the list.
+ * A linear search sequentially checks each element of the list until it finds an element that matches the target value.
+ * If the algorithm reaches the end of the list, the search terminates unsuccessfully.
  *
  *  ![Linear Search](https://www.tutorialspoint.com/data_structures_algorithms/images/linear_search.gif)
+ *  source: www.tutorialspoint.com
  *
  * ### Complexity
  *
- * **Time Complexity**: `O(n)` - since in worst case we're checking each element
- * exactly once.
+ * * Worst-case performance	- `O(n)`
+ * * Best-case performance - `O(1)`
+ * * Average performance - `O(n)`
+ * * Worst-case space complexity - `O(1) iterative`
+ *
+ * ### Reference
+ *
+ * * [Linear Search](https://en.wikipedia.org/wiki/Linear_search)
+ *
+ * @typeparam collection of types T
+ * @param v searching value
+ * @param [comparator] check [[ComparatorFn]], by default used [[genericComparator]]
+ * @return index of found element, -1 if not found
  */
 export function linearIndexOf<T>(collection: T[], v:T, comparator: ComparatorFn<T> = genericComparator): number {
   let res = -1;
