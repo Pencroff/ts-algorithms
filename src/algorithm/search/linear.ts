@@ -15,10 +15,12 @@ import { ComparatorFn, genericComparator } from '../../primitive/comparator';
  *
  * ### Complexity
  *
- * * Worst-case performance	- `O(n)`
- * * Best-case performance - `O(1)`
- * * Average performance - `O(n)`
- * * Worst-case space complexity - `O(1) iterative`
+ * | Case | BigO |
+ * | - | - |
+ * | Worst-case performance	| `O(n)` |
+ * | Best-case performance | `O(1)` |
+ * | Average performance | `O(n)` |
+ * | Worst-case space complexity | `O(1) iterative` |
  *
  * ### Reference
  *
