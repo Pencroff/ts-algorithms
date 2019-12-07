@@ -5,7 +5,7 @@
  */
 
 
-import { ComparatorFn } from '../primitive/comparator';
+import { ComparatorFn } from '../../primitive/comparator';
 
 /**
  *

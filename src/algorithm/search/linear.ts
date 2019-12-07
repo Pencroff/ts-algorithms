@@ -3,7 +3,7 @@
  */
 
 
-import { ComparatorFn, genericComparator } from '../primitive/comparator';
+import { ComparatorFn, genericComparator } from '../../primitive/comparator';
 /**
  * ## Linear Search
  * In computer science, linear search or sequential search is a

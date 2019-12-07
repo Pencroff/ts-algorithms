@@ -3,10 +3,10 @@
  */
 
 
-import { ComparatorFn, genericComparator } from '../primitive/comparator';
+import { ComparatorFn, genericComparator } from '../../primitive/comparator';
 
 /**
- *
+ * Binary search in collection
  * @typeparam collection of types T
  * @param v searching value
  * @param comparator check [[ComparatorFn]]
