@@ -100,15 +100,13 @@
 					<div class="tsd-signature tsd-kind-icon">Comparator<wbr>Fn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/6f39657/src/primitive/comparator.ts#L21">primitive/comparator.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/03c5c46/src/primitive/comparator.ts#L16">primitive/comparator.ts:16</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Comparator function expect two parameters with the same type</p>
 						</div>
-						<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { genericComparator } <span class="hljs-keyword">from</span> <span class="hljs-string">'@pencroff/ts-algorithms/dist/primitive/comparator'</span>;
-<span class="hljs-keyword">const</span> res = genericComparator(<span class="hljs-string">'A'</span>, <span class="hljs-string">'B'</span>); <span class="hljs-comment">// -1</span></code></pre>
 						<dl class="tsd-comment-tags">
 							<dt>returns</dt>
 							<dd><p>represent comparison operation, check below</p>
@@ -158,18 +156,23 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/6f39657/src/primitive/comparator.ts#L29">primitive/comparator.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/03c5c46/src/primitive/comparator.ts#L29">primitive/comparator.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Generic comparator, working for primitive types</p>
+									<p>Generic comparator, working for primitive types like number, string, boolean</p>
 								</div>
+								<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { genericComparator } <span class="hljs-keyword">from</span> <span class="hljs-string">'@pencroff/ts-algorithms/dist/primitive/comparator'</span>;
+<span class="hljs-keyword">const</span> res = genericComparator(<span class="hljs-string">'A'</span>, <span class="hljs-string">'B'</span>); <span class="hljs-comment">// -1</span></code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>T</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>type of both input parameters</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
