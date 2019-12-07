@@ -11,8 +11,8 @@
     "build": "rimraf ./dist && tsc",
     "prepare": "npm run test && npm run build",
     "test": "jest --coverage",
-    "docs": "rimraf ./docs && typedoc && npm run copyCname",
-    "copyCname": "cpx CNAME docs"
+    "docs": "rimraf ./docs && typedoc && npm run copyAssets",
+    "copyAssets": "cpx CNAME docs && cpx assets/**/*.{svg,png} docs/assets"
   },
   "repository": {
     "type": "git",

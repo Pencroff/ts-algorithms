@@ -4,7 +4,29 @@ Typescript algorithms and Data Structures
 [![Build Status](https://travis-ci.org/Pencroff/ts-algorithms.svg?branch=master)](https://travis-ci.org/Pencroff/ts-algorithms)
 [![codecov](https://codecov.io/gh/Pencroff/ts-algorithms/branch/master/graph/badge.svg)](https://codecov.io/gh/Pencroff/ts-algorithms)
 
+## Get started
+
+`npm i @pencroff/ts-algorithms --save`
+
+The package doesn't provide any common exports. All required imports should be per item.
+For example:
+
+```
+import { genericComparator } from '@pencroff/ts-algorithms/dist/primitive/comparator'
+
+const res = genericComparator('A', 'B'); // returns -1, check primitives for details
+```
+
+## Theory
+
 Big O notation is used in computer science to describe the performance or complexity of an algorithm.
 
-![Big O chart][assets/big-o-chart.svg]
+![Big O chart](assets/big-o-chart.svg)
 source: www.bigocheatsheet.com
+
+Big O can be used for measuring time complexity or space / memory complexity 
+
+References:
+
+* 📝 [The Big O Notation](https://dev.to/sarah_chima/the-big-o-notation-an-introduction-34f7)
+* 📽️ [Big O Notation](https://www.youtube.com/watch?v=v4cd1O4zkGw)
