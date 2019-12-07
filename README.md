@@ -24,7 +24,7 @@ Big O notation is used in computer science to describe the performance or comple
 ![Big O chart](assets/big-o-chart.svg)
 source: www.bigocheatsheet.com
 
-Big O can be used for measuring time complexity or space / memory complexity 
+Big O can be used for measuring time complexity or space / memory complexity.
 
 References:
 

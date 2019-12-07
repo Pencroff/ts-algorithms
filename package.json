@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/Pencroff/ts-algorithms/issues"
   },
-  "homepage": "https://github.com/Pencroff/ts-algorithms#readme",
+  "homepage": "https://ts-algorithms.pencroff.com",
   "dependencies": {
     "tslib": "^1.10.0"
   },

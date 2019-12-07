@@ -6,6 +6,7 @@
 
 /**
  * Comparator function expect two parameters with the same type
+ *
  * @typeparam T type of both input parameters
  * @return {number} represent comparison operation, check below
  *    + parameters equal - return zero
@@ -15,9 +16,14 @@
 export type ComparatorFn<T> = (a: T, b: T) => number;
 
 /**
- * Generic comparator, working for primitive types
- * @param a
- * @param b
+ * Generic comparator, working for primitive types like number, string, boolean
+ *
+ * ```typescript
+ * import { genericComparator } from '@pencroff/ts-algorithms/dist/primitive/comparator';
+ * const res = genericComparator('A', 'B'); // -1
+ * ```
+ *
+ * @typeparam T type of both input parameters
  * @return {number} - check [[ComparatorFn]]
  */
 export function genericComparator<T>(a: T, b: T): number {
