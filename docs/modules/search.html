@@ -94,7 +94,7 @@
 					<div class="tsd-signature tsd-kind-icon">Index<wbr>OfFn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/6b62bd2/src/algorithm/search/type.ts#L13">algorithm/search/type.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f61798b/src/algorithm/search/type.ts#L13">algorithm/search/type.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -138,13 +138,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/6b62bd2/src/algorithm/search/binary.ts#L15">algorithm/search/binary.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f61798b/src/algorithm/search/binary.ts#L35">algorithm/search/binary.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Binary search in collection</p>
+									<h2 id="binary-search">Binary search</h2>
+									<p>Binary search works on sorted arrays. Binary search begins by comparing an element in the middle of the array
+										with the target value. If the target value matches the element, its position in the array is returned. If the
+										target value is less than the element, the search continues in the lower half of the array. If the target value
+										is greater than the element, the search continues in the upper half of the array. By doing this, the algorithm
+									eliminates the half in which the target value cannot lie in each iteration.</p>
 								</div>
+								<p> <img src="https://www.mathwarehouse.com/programming/images/binary-vs-linear-search/binary-and-linear-search-animations.gif" alt="Binary search">
+								source: <a href="http://www.mathwarehouse.com">www.mathwarehouse.com</a></p>
+								<h3 id="complexity">Complexity</h3>
+								<ul>
+									<li>Worst-case performance    - <code>O(log n)</code></li>
+									<li>Best-case performance - <code>O(1)</code></li>
+									<li>Average performance - <code>O(log n)</code></li>
+									<li>Worst-case space complexity - <code>O(1)</code></li>
+								</ul>
+								<h3 id="reference">Reference</h3>
+								<ul>
+									<li><a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">Binary search</a></li>
+								</ul>
 								<dl class="tsd-comment-tags">
 									<dt>typeparam</dt>
 									<dd><p>of types T</p>
@@ -187,7 +205,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/6b62bd2/src/algorithm/search/linear.ts#L30">algorithm/search/linear.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f61798b/src/algorithm/search/linear.ts#L31">algorithm/search/linear.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -196,7 +214,8 @@
 									<p>A linear search sequentially checks each element of the list until it finds an element that matches the target value.
 									If the algorithm reaches the end of the list, the search terminates unsuccessfully.</p>
 								</div>
-								<p> <img src="https://www.tutorialspoint.com/data_structures_algorithms/images/linear_search.gif" alt="Linear Search"></p>
+								<p> <img src="https://www.tutorialspoint.com/data_structures_algorithms/images/linear_search.gif" alt="Linear Search">
+								source: <a href="http://www.tutorialspoint.com">www.tutorialspoint.com</a></p>
 								<h3 id="complexity">Complexity</h3>
 								<ul>
 									<li>Worst-case performance    - <code>O(n)</code></li>
