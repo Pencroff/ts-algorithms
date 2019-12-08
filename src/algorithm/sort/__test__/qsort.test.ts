@@ -3,16 +3,18 @@
  */
 
 import { qSort } from '../qsort';
-import { numberCollection, stringCollection } from './sort.data';
+import { numberCollection, stringCollection, objectCollection } from './sort.data';
 
 describe('quick sort', () => {
 
   let numCollection: number[];
   let strCollection: string[];
+  let objCollection: any[];
 
   beforeEach(() => {
     numCollection = numberCollection.slice();
     strCollection = stringCollection.slice();
+    objCollection = objectCollection.slice();
   });
 
   test('should sort numbers', () => {
@@ -36,4 +38,13 @@ describe('quick sort', () => {
     expect(second < preLast).toBe(true);
     expect(preLast < last).toBe(true);
   });
+
+  test('expected to be unstable', () => {
+    const el = objCollection[0];
+    qSort(objCollection, (a, b) => a.age - b.age);
+    const firstIdx = objCollection.indexOf(el);
+    qSort(objCollection, (a, b) => a.age - b.age);
+    const secondIdx = objCollection.indexOf(el);
+    expect(firstIdx).not.toEqual(secondIdx);
+  })
 });

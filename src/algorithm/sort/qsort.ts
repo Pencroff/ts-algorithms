@@ -6,12 +6,12 @@ import { ComparatorFn, genericComparator } from '../../primitive/comparator';
 import { swap } from '../../primitive/swap';
 
 /**
- * ## Quicksort
+ * ## Quicksort (unstable, in-place implementation)
  * Quicksort is a divide and conquer algorithm. Quicksort first divides a large array into two
  * smaller sub-arrays: the low elements and the high elements. Quicksort can then recursively sort the sub-arrays.
  *
- * ![Quicksort](https://www.tutorialspoint.com/data_structures_algorithms/images/quick_sort_partition_animation.gif)
- *  source: www.tutorialspoint.com
+ * ![Quicksort](https://upload.wikimedia.org/wikipedia/commons/f/fe/Quicksort.gif)
+ *  source: commons.wikimedia.org
  *
  * ### Complexity
  *
