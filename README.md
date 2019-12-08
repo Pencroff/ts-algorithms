@@ -17,11 +17,19 @@ import { genericComparator } from '@pencroff/ts-algorithms/dist/primitive/compar
 const res = genericComparator('A', 'B'); // returns -1, check primitives for details
 ```
 
+## Algorithms
+
+* Search
+    * [Linear Search](https://ts-algorithms.pencroff.com/modules/search.html#linearindexof)
+    * [Binary Search](https://ts-algorithms.pencroff.com/modules/search.html#binaryindexof)
+* Sorting
+    * [Quicksort](https://ts-algorithms.pencroff.com/modules/sort.html#qsort)
+
 ## Theory
 
 Big O notation is used in computer science to describe the performance or complexity of an algorithm.
 
-![Big O chart](assets/big-o-chart.svg)
+![Big O chart](https://ts-algorithms.pencroff.com/assets/big-o-chart.svg)
 source: www.bigocheatsheet.com
 
 Big O can be used for measuring time complexity or space / memory complexity.

@@ -2,15 +2,14 @@
  * @module search
  */
 
-
 import { ComparatorFn, genericComparator } from '../../primitive/comparator';
+
 /**
  * ## Linear Search
  * A linear search sequentially checks each element of the list until it finds an element that matches the target value.
  * If the algorithm reaches the end of the list, the search terminates unsuccessfully.
  *
  *  ![Linear Search](https://www.tutorialspoint.com/data_structures_algorithms/images/linear_search.gif)
- *
  *  source: www.tutorialspoint.com
  *
  * ### Complexity

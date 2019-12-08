@@ -15,7 +15,6 @@
   "typedocOptions": {
     "mode": "modules",
     "out": "docs",
-    "plugin": "typedoc-plugin-external-module-name",
     "hideGenerator": true
   },
   "include": [

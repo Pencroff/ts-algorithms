@@ -29,4 +29,14 @@ describe('binary.search', () => {
     const strResult = binaryIndexOf(sortedStringCollection, 'ABC');
     expect(strResult).toBe(-1);
   });
+  it('should return -1 for unfound in middle', () => {
+    const numResult = binaryIndexOf(sortedNumberCollection, 10);
+    expect(numResult).toBe(-1);
+  });
+  it('should find first and last', () => {
+    let numResult = binaryIndexOf(sortedNumberCollection, sortedNumberCollection[0]);
+    expect(numResult).toBe(0);
+    numResult = binaryIndexOf(sortedNumberCollection, sortedNumberCollection[sortedNumberCollection.length - 1]);
+    expect(numResult).toBe(sortedNumberCollection.length - 1);
+  });
 });

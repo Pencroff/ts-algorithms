@@ -2,7 +2,6 @@
  * @module search
  */
 
-
 import { ComparatorFn, genericComparator } from '../../primitive/comparator';
 
 /**
@@ -14,7 +13,6 @@ import { ComparatorFn, genericComparator } from '../../primitive/comparator';
  * eliminates the half in which the target value cannot lie in each iteration.
  *
  *  ![Binary search](https://www.mathwarehouse.com/programming/images/binary-vs-linear-search/binary-and-linear-search-animations.gif)
- *
  *  source: www.mathwarehouse.com
  *
  * ### Complexity
