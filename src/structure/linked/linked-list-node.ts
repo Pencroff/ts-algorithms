@@ -1,7 +1,10 @@
 /**
- * Created by Pencroff on 08-Dec-2019.
+ * @module structure
  */
 
+/**
+ * Represent a node for [[LinkedList]]
+ */
 export class LinkedListNode<T> {
   constructor(public value: T, public next: LinkedListNode<T> = null, public prev: LinkedListNode<T> = null) {
   }
