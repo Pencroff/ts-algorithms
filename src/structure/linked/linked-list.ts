@@ -13,8 +13,8 @@ import { LinkedListNode } from './linked-list-node';
  * contains: data, and a reference (in other words, a link) to the next node in the sequence. This structure
  * allows for efficient insertion or removal of elements from any position in the sequence during iteration.
  *
- * ![Linked list](https://4.bp.blogspot.com/-GZA5JUSRXMw/VovF9Z8etWI/AAAAAAAAEgQ/8uFzxgqAS48/s400/Singly%2Blinked%2Blist%2Band%2Bdoubly%2Blinked%2Blist%2Bin%2BJava.jpg)
- *  source: www.java67.com
+ * ![Linked list](https://personalzone-hulgokm2zfcmm9u.netdna-ssl.com/wp-content/uploads/2017/07/singly-linked-list-vs-doubly-linked-list.jpg)
+ *  source: www.thecodingdelight.com
  *
  * ### Complexity
  *
@@ -24,7 +24,7 @@ import { LinkedListNode } from './linked-list-node';
  * | Search | `O(n)` | `O(n)` |
  * | Insert | `O(1)` | `O(1)` |
  * | Delete | `O(1)` | `O(1)` |
- * |   |   |   |
+ * | - | - | - |
  * | Space	| `O(n)` | `O(n)` |
  *
  * ### Reference
