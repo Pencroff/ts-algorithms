@@ -29,7 +29,7 @@ import { ComparatorFn, genericComparator } from '../../primitive/comparator';
  * * [Binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm)
  *
  * ```typescript
- * import { binaryIndexOf } from '@pencroff/ts-algorithms/dist/search/binary';
+ * import { binaryIndexOf } from '@pencroff/ts-algorithms/dist/algorithm/search/binary';
  * const res = binaryIndexOf([3, 5, 8], 8); // 2
  * ```
  *

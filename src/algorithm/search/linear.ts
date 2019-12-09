@@ -26,7 +26,7 @@ import { ComparatorFn, genericComparator } from '../../primitive/comparator';
  * * [Linear Search](https://en.wikipedia.org/wiki/Linear_search)
  *
  * ```typescript
- * import { linearIndexOf } from '@pencroff/ts-algorithms/dist/search/linear';
+ * import { linearIndexOf } from '@pencroff/ts-algorithms/dist/algorithm/search/linear';
  * const res = linearIndexOf([11, 5, 8], 8); // 2
  * ```
  *

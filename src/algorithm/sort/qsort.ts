@@ -27,7 +27,7 @@ import { swap } from '../../primitive/swap';
  * * [Quicksort](https://en.wikipedia.org/wiki/Quicksort)
  *
  * ```typescript
- * import { qSort } from '@pencroff/ts-algorithms/dist/sort/qsort';
+ * import { qSort } from '@pencroff/ts-algorithms/dist/algorithm/sort/qsort';
  * qSort([11, 5, 8]), // [5, 8, 11]
  * ```
  *
