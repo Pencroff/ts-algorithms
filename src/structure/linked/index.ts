@@ -1,4 +1,6 @@
 /**
+ * Different data structures
+ * @preferred
  * @module structure
  */
 

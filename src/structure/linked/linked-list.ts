@@ -170,8 +170,8 @@ export class LinkedList<T> {
    * Remove node by reference or value
    *
    * Complexity:
-   * * remove(value: LinkedListNode<T>) - O(1)
-   * * remove(value: T) - O(n)
+   * * remove(value: LinkedListNode<T>) - **O(1)**
+   * * remove(value: T) - **O(n)**
    *
    * @param value
    */
