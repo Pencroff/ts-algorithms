@@ -25,7 +25,7 @@ import { LinkedListNode } from './linked-list-node';
  * | Insert | `O(1)` | `O(1)` |
  * | Delete | `O(1)` | `O(1)` |
  * | - | - | - |
- * | Space	| `O(n)` | `O(n)` |
+ * | Space | `O(n)` | `O(n)` |
  *
  * ### Reference
  *
@@ -42,72 +42,195 @@ import { LinkedListNode } from './linked-list-node';
 export class LinkedList<T> {
   private _first: LinkedListNode<T>;
   private _last: LinkedListNode<T>;
-  private _count: number;
+  private _len: number;
 
-  constructor(initCollection: T[], comparator: ComparatorFn<T> = genericComparator) {
+  constructor(initCollection?: T[], private comparator: ComparatorFn<T> = genericComparator) {
+    this._first = null;
+    this._last = null;
+    this._len = 0;
+
+    if (Array.isArray(initCollection)) {
+      initCollection.forEach((el) => {
+        this.insertLast(el);
+      })
+    }
   }
 
   get first(): LinkedListNode<T> {
-    return null;
+    return this._first;
   }
 
   get last(): LinkedListNode<T> {
-    return null;
+    return this._last;
   }
 
-  get count(): number {
-    return 0;
+  get length(): number {
+    return this._len;
   }
 
-  insertAfter(node: LinkedListNode<T>, value: T|LinkedListNode<T>): LinkedList<T> {
-    return null;
+  insertAfter(node: LinkedListNode<T>, value: T | LinkedListNode<T>): LinkedList<T> {
+    const newNode = this.toNode(value);
+    if (node.next) {
+      node.next.prev = newNode;
+    }
+    newNode.next = node.next;
+    newNode.prev = node;
+    node.next = newNode;
+    this._len += 1;
+    return this;
   }
 
-  insertBefore(node: LinkedListNode<T>, value: T|LinkedListNode<T>): LinkedList<T> {
-    return null;
+  insertBefore(node: LinkedListNode<T>, value: T | LinkedListNode<T>): LinkedList<T> {
+    const newNode = this.toNode(value);
+    if (node.prev) {
+      node.prev.next = newNode;
+    }
+    newNode.prev = node.prev;
+    newNode.next = node;
+    node.prev = newNode;
+    this._len += 1;
+    return this;
   }
 
-  insertFirst(value: T|LinkedListNode<T>): LinkedList<T> {
-    return  null;
+  insertFirst(value: T | LinkedListNode<T>): LinkedList<T> {
+    const node = this.toNode(value);
+    node.next = this.first;
+    if (this.first) {
+      this.first.prev = node;
+    }
+    if (!this.last) {
+      this._last = node;
+    }
+    this._first = node;
+    this._len += 1;
+    return this;
   }
 
-  insertLast(value: T|LinkedListNode<T>): LinkedList<T> {
-    return  null;
+  insertLast(value: T | LinkedListNode<T>): LinkedList<T> {
+    const node = this.toNode(value);
+    node.prev = this.last;
+    if (this.last) {
+      this.last.next = node;
+    }
+    if (!this.first) {
+      this._first = node;
+    }
+    this._last = node;
+    this._len += 1;
+    return this;
   }
 
   clear(): void {
-
+    this._first = null;
+    this._last = null;
+    this._len = 0;
   }
 
-  remove(value: T|LinkedListNode<T>): LinkedList<T> {
-    return null;
+  remove(value: T | LinkedListNode<T>): boolean {
+    const { first, last } = this;
+    let res = (first !== null) && (last !== null);
+    if (res) {
+      if (value instanceof LinkedListNode) {
+        if (this.length === 1) {
+          this._first = null;
+          this._last = null;
+        } else {
+          const { next, prev } = (value as LinkedListNode<T>);
+          if (this.first === value) {
+            this._first = next;
+          }
+          if (this.last === value) {
+            this._last = prev;
+          }
+          if (next) {
+            next.prev = prev;
+          }
+          if (prev) {
+            prev.next = next;
+          }
+        }
+        this._len -= 1;
+      } else {
+        const node = this.find(value);
+        this.remove(node);
+        res = !!node;
+      }
+    }
+    return res;
   }
 
-  removeFirst(): LinkedList<T> {
-    return null;
+  removeFirst(): boolean {
+    return this.remove(this.first);
   }
 
-  removeLast(): LinkedList<T> {
-    return null;
-  }
-
-  has(value: T|LinkedListNode<T>): boolean {
-    return null;
+  removeLast(): boolean {
+    return this.remove(this.last);
   }
 
   find(value: T): LinkedListNode<T> {
-    return null;
+    let res;
+    if (this.first) {
+      let current = this.first;
+      while (current) {
+        if (this.comparator(current.value, value) === 0) {
+            res = current;
+            break;
+        }
+        current = current.next;
+      }
+    }
+    return res;
   }
 
   findLast(value: T): LinkedListNode<T> {
-    return null;
+    let res;
+    if (this.last) {
+      let current = this.last;
+      while (current) {
+        if (this.comparator(current.value, value) === 0) {
+          res = current;
+          break;
+        }
+        current = current.prev;
+      }
+    }
+    return res;
   }
 
   reverse(): LinkedList<T> {
-    return null;
+    if (this.first !== this.last) {
+      let current = this.first;
+      let next;
+      let prev;
+
+      while (current) {
+        next = current.next;
+        prev = current.prev;
+
+        current.next = prev;
+        current.prev = next;
+
+        prev = current;
+        current = next;
+      }
+
+      this._last = this.first;
+      this._first = prev;
+    }
+    return this;
   }
 
   toArray(): T[] {
-    return null;
+    const res = [];
+    let current = this.first;
+    while (current) {
+      res.push(current.value);
+      current = current.next;
+    }
+    return res;
+  }
+
+  private toNode(value: T | LinkedListNode<T>): LinkedListNode<T> {
+    return value instanceof LinkedListNode ? value : new LinkedListNode(value);
   }
 }
