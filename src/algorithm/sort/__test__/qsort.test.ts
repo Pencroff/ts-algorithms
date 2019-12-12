@@ -1,10 +1,12 @@
 /**
  * Created by Pencroff on 08-Dec-2019.
  */
-import { qSort } from '../qsort';
-import { numberCollection, stringCollection, objectCollection } from './sort.data';
+
 // @ts-ignore
 import { cases } from '../../../../helper/cases';
+
+import { qSort } from '../qsort';
+import { numberCollection, stringCollection, objectCollection } from './sort.data';
 
 const sortFn = qSort;
 
