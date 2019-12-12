@@ -44,13 +44,18 @@ export class LinkedList<T> {
   private _last: LinkedListNode<T>;
   private _len: number;
 
-  constructor(initCollection?: T[], private comparator: ComparatorFn<T> = genericComparator) {
+  /**
+   * LinkedList constructor
+   * @param initArr     initial data as array
+   * @param [comparator] check [[ComparatorFn]], default [[genericComparator]]
+   */
+  constructor(initArr?: T[], private comparator: ComparatorFn<T> = genericComparator) {
     this._first = null;
     this._last = null;
     this._len = 0;
 
-    if (Array.isArray(initCollection)) {
-      initCollection.forEach((el) => {
+    if (Array.isArray(initArr)) {
+      initArr.forEach((el) => {
         this.insertLast(el);
       })
     }
@@ -68,6 +73,14 @@ export class LinkedList<T> {
     return this._len;
   }
 
+  /**
+   * Insert value or node after node
+   *
+   * Complexity: **O(1)**
+   *
+   * @param node
+   * @param value
+   */
   insertAfter(node: LinkedListNode<T>, value: T | LinkedListNode<T>): LinkedList<T> {
     const newNode = this.toNode(value);
     if (node.next) {
@@ -80,6 +93,14 @@ export class LinkedList<T> {
     return this;
   }
 
+  /**
+   * Insert value or node before node
+   *
+   * Complexity: **O(1)**
+   *
+   * @param node
+   * @param value
+   */
   insertBefore(node: LinkedListNode<T>, value: T | LinkedListNode<T>): LinkedList<T> {
     const newNode = this.toNode(value);
     if (node.prev) {
@@ -92,6 +113,13 @@ export class LinkedList<T> {
     return this;
   }
 
+  /**
+   * Insert value or node first
+   *
+   * Complexity: **O(1)**
+   *
+   * @param value
+   */
   insertFirst(value: T | LinkedListNode<T>): LinkedList<T> {
     const node = this.toNode(value);
     node.next = this.first;
@@ -106,6 +134,13 @@ export class LinkedList<T> {
     return this;
   }
 
+  /**
+   * Insert value or node last
+   *
+   * Complexity: **O(1)**
+   *
+   * @param value
+   */
   insertLast(value: T | LinkedListNode<T>): LinkedList<T> {
     const node = this.toNode(value);
     node.prev = this.last;
@@ -120,12 +155,26 @@ export class LinkedList<T> {
     return this;
   }
 
+  /**
+   * Clear linked list
+   *
+   * Complexity: **O(1)**
+   */
   clear(): void {
     this._first = null;
     this._last = null;
     this._len = 0;
   }
 
+  /**
+   * Remove node by reference or value
+   *
+   * Complexity:
+   * * remove(value: LinkedListNode<T>) - O(1)
+   * * remove(value: T) - O(n)
+   *
+   * @param value
+   */
   remove(value: T | LinkedListNode<T>): boolean {
     const { first, last } = this;
     let res = (first !== null) && (last !== null);
@@ -159,14 +208,31 @@ export class LinkedList<T> {
     return res;
   }
 
+  /**
+   * Remove first node
+   *
+   * Complexity: **O(1)**
+   */
   removeFirst(): boolean {
     return this.remove(this.first);
   }
 
+  /**
+   * Remove last node
+   *
+   * Complexity: **O(1)**
+   */
   removeLast(): boolean {
     return this.remove(this.last);
   }
 
+  /**
+   * Find first node by value, used comparator function, linear search
+   *
+   * Complexity: **O(n)**
+   *
+   * @param value
+   */
   find(value: T): LinkedListNode<T> {
     let res;
     if (this.first) {
@@ -182,6 +248,13 @@ export class LinkedList<T> {
     return res;
   }
 
+  /**
+   * Find last node by value, used comparator function, linear search
+   *
+   * Complexity: **O(n)**
+   *
+   * @param value
+   */
   findLast(value: T): LinkedListNode<T> {
     let res;
     if (this.last) {
@@ -197,6 +270,11 @@ export class LinkedList<T> {
     return res;
   }
 
+  /**
+   * Reverse order of list nodes
+   *
+   * Complexity: **O(n)**
+   */
   reverse(): LinkedList<T> {
     if (this.first !== this.last) {
       let current = this.first;
@@ -220,6 +298,11 @@ export class LinkedList<T> {
     return this;
   }
 
+  /**
+   * Export list to array
+   *
+   * Complexity: **O(n)**
+   */
   toArray(): T[] {
     const res = [];
     let current = this.first;
