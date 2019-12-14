@@ -3,6 +3,7 @@
  */
 import { ComparatorFn, genericComparator } from '../../primitive/comparator';
 import { LinkedListNode } from './linked-list-node';
+import { NotImplementedError } from '../../error/not-implemented.error';
 
 /**
  * ## Linked list
@@ -39,7 +40,7 @@ import { LinkedListNode } from './linked-list-node';
  *
  * **LinkedList** implements `generic` doubly linked list
  */
-export class LinkedList<T> {
+export class LinkedList<T> implements Iterable<T> {
   private _first: LinkedListNode<T>;
   private _last: LinkedListNode<T>;
   private _len: number;
@@ -71,6 +72,10 @@ export class LinkedList<T> {
 
   get length(): number {
     return this._len;
+  }
+
+  *[Symbol.iterator] (): any {
+    throw new NotImplementedError();
   }
 
   /**
@@ -156,7 +161,7 @@ export class LinkedList<T> {
   }
 
   /**
-   * Clear linked list
+   * Clear all values in [[LinkedList]]
    *
    * Complexity: **O(1)**
    */
@@ -167,7 +172,7 @@ export class LinkedList<T> {
   }
 
   /**
-   * Remove node by reference or value
+   * Remove node by reference or value from [[LinkedList]]
    *
    * Complexity:
    * * remove(value: LinkedListNode<T>) - **O(1)**
@@ -209,7 +214,7 @@ export class LinkedList<T> {
   }
 
   /**
-   * Remove first node
+   * Remove first node from [[LinkedList]]
    *
    * Complexity: **O(1)**
    */
@@ -218,7 +223,7 @@ export class LinkedList<T> {
   }
 
   /**
-   * Remove last node
+   * Remove last node from [[LinkedList]]
    *
    * Complexity: **O(1)**
    */
@@ -227,7 +232,7 @@ export class LinkedList<T> {
   }
 
   /**
-   * Find first node by value, used comparator function, linear search
+   * Find first node by value in [[LinkedList]], used comparator function, linear search
    *
    * Complexity: **O(n)**
    *
@@ -249,7 +254,7 @@ export class LinkedList<T> {
   }
 
   /**
-   * Find last node by value, used comparator function, linear search
+   * Find last node by value in [[LinkedList]], used comparator function, linear search
    *
    * Complexity: **O(n)**
    *
@@ -268,6 +273,17 @@ export class LinkedList<T> {
       }
     }
     return res;
+  }
+
+  /**
+   * Determines whether a value is in the [[LinkedList]]
+   *
+   * Complexity: **O(n)**
+   *
+   * @param value
+   */
+  has(value: T): boolean {
+    return null;
   }
 
   /**
