@@ -74,8 +74,25 @@ export class LinkedList<T> implements Iterable<T> {
     return this._len;
   }
 
-  *[Symbol.iterator] (): any {
-    throw new NotImplementedError();
+  [Symbol.iterator] (): Iterator<T> {
+    let current = this.first;
+    return {
+      next(...args): IteratorResult<T> {
+        if (current) {
+          const { value } = current;
+          current = current.next;
+          return {
+            done: false,
+            value,
+          }
+        } else {
+          return {
+            done: true,
+            value: undefined
+          }
+        }
+      }
+    }
   }
 
   /**
@@ -283,7 +300,7 @@ export class LinkedList<T> implements Iterable<T> {
    * @param value
    */
   has(value: T): boolean {
-    return null;
+    return !!this.find(value);
   }
 
   /**

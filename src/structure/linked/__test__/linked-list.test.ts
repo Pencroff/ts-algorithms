@@ -326,6 +326,11 @@ describe('linked-list', () => {
       expect(node.value).toEqual({ name: 'B' });
       expect(node).toEqual(list.last.prev);
     });
+
+    it('should "has" element by value', () => {
+      expect(list.has('X')).toBeTruthy();
+      expect(list.has('Z')).toBeFalsy();
+    });
   });
 
   it('should reverse list', () => {
@@ -347,6 +352,16 @@ describe('linked-list', () => {
     list.reverse();
     expect(list.toArray()).toEqual(reversed);
   });
+
+  it('should iterate elements', () => {
+    const list = new LinkedList(['X', 'Y', 'Z'])
+    const mock = jest.fn();
+    for (let v of list) {
+      mock(v);
+    }
+    expect(mock.mock.calls).toEqual([['X'], ['Y'], ['Z']]);
+  });
+
   it('should return itself for chaining', () => {
     const list = new LinkedList([1, 2, 3, 4, 5, 6, 7]);
     expect(list.insertAfter(list.first, 1.5)).toBe(list);
