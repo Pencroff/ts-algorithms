@@ -1,34 +1,48 @@
 /**
  * @module structure
  */
-import { NotImplementedError } from '../../error/not-implemented.error';
+
+import { LinkedList } from './linked-list';
 
 export class Queue<T> {
+  private _list: LinkedList<T>;
+
   constructor(initArr?: T[]) {
+    this._list = new LinkedList<T>(initArr);
   }
 
   get length(): number {
-    throw new NotImplementedError();
+    return this._list.length;
   }
 
   enqueue(value: T): void {
-    throw new NotImplementedError();
+    this._list.insertLast(value);
   }
 
   dequeue(): T {
-    throw new NotImplementedError();
+    const res = this.peek();
+    this._list.removeFirst();
+    return res;
   }
 
-  pick(): T {
-    throw new NotImplementedError();
+  peek(): T {
+    let res;
+    const first = this._list.first;
+    if (first) {
+        res = first.value;
+    }
+    return res;
   }
 
   has(value: T): boolean {
-    throw new NotImplementedError();
+    return this._list.has(value);
   }
 
   clear(): void {
-    throw new NotImplementedError();
+    this._list.clear();
   }
 
+  [Symbol.iterator] (): Iterator<T> {
+    return this._list[Symbol.iterator]();
+  }
 }

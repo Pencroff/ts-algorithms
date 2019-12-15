@@ -328,8 +328,8 @@ describe('linked-list', () => {
     });
 
     it('should "has" element by value', () => {
-      expect(list.has('X')).toBeTruthy();
-      expect(list.has('Z')).toBeFalsy();
+      expect(list.has('X')).toBe(true);
+      expect(list.has('Z')).toBe(false);
     });
   });
 
