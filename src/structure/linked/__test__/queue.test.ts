@@ -45,6 +45,13 @@ describe('queue', () => {
       expect(q.dequeue()).toBeUndefined();
       expect(q.peek()).toBeUndefined();
   });
+  it('should export to array', () => {
+    q.dequeue();
+    q.enqueue('X');
+    q.enqueue('Y');
+    q.enqueue('Z');
+    expect(q.toArray()).toEqual(['B', 'C', 'X', 'Y', 'Z']);
+  });
 });
 
 function hasValues<T>(q: Queue<T>, values: T[]) {

@@ -74,6 +74,9 @@ export class LinkedList<T> implements Iterable<T> {
     return this._len;
   }
 
+  /**
+   * LinkedList iterator for iteration across all nodes
+   */
   [Symbol.iterator] (): Iterator<T> {
     let current = this.first;
     return {
@@ -332,7 +335,7 @@ export class LinkedList<T> implements Iterable<T> {
   }
 
   /**
-   * Export list to array
+   * Export [[LinkedList]] to array
    *
    * Complexity: **O(n)**
    */
