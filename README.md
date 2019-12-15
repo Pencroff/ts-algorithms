@@ -21,6 +21,7 @@ const res = genericComparator('A', 'B'); // returns -1, check primitives for det
 
 * Structures
     * [Linked list (generic doubly linked)](https://ts-algorithms.pencroff.com/classes/structure.linkedlist.html)
+    * [Queue (FIFO)](https://ts-algorithms.pencroff.com/classes/structure.queue.html)
 * Search
     * [Linear Search](https://ts-algorithms.pencroff.com/modules/search.html#linearindexof)
     * [Binary Search](https://ts-algorithms.pencroff.com/modules/search.html#binaryindexof)
