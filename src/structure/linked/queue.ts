@@ -16,8 +16,8 @@ import { LinkedList } from './linked-list';
  * often including a peek or front operation that returns the value of the next element to be dequeued without
  * dequeuing it.
  *
- * ![Queue](https://cdn-media-1.freecodecamp.org/images/aQcmAeS9hN4ormkWg3L00rJZEfk3mmJdx6Pk)
- * source: www.freecodecamp.org
+ * ![Queue](https://res.cloudinary.com/practicaldev/image/fetch/s--6l64S1Dr--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/lkgf80jmtry868zwknri.png)
+ * source: dev.to
  *
  * ### Complexity
  *
