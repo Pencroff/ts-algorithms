@@ -3,6 +3,7 @@
  */
 
 import { LinkedList } from '../src/structure/linked';
+import { Stack } from '../src/structure/linked/stack';
 
 export function isLinkedList<T>(list: LinkedList<T>) {
   const { first, last } = list;
@@ -24,4 +25,13 @@ export function isLinkedList<T>(list: LinkedList<T>) {
     }
   }
   return emptyOrSingle || loopFlag;
+}
+
+export function hasValues<T>(instance: Iterable<T>, values: T[]) {
+  const callList = values.map((value) => [value]);
+  const mock = jest.fn();
+  for (let v of instance) {
+    mock(v);
+  }
+  expect(mock.mock.calls).toEqual(callList);
 }

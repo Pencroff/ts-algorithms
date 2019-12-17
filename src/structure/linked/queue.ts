@@ -16,7 +16,7 @@ import { LinkedList } from './linked-list';
  * often including a peek or front operation that returns the value of the next element to be dequeued without
  * dequeuing it.
  *
- * ![Queue](https://res.cloudinary.com/practicaldev/image/fetch/s--6l64S1Dr--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/lkgf80jmtry868zwknri.png)
+ * ![Queue](https://thepracticaldev.s3.amazonaws.com/i/lkgf80jmtry868zwknri.png)
  * source: dev.to
  *
  * ### Complexity
@@ -42,7 +42,7 @@ import { LinkedList } from './linked-list';
  * **Queue** based on [[LinkedList]]
  */
 export class Queue<T> {
-  private _list: LinkedList<T>;
+  private readonly _list: LinkedList<T>;
 
   /**
    * Queue constructor

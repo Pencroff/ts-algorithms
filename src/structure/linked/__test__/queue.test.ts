@@ -2,6 +2,9 @@
  * Created by Pencroff on 15-Dec-2019.
  */
 
+// @ts-ignore
+import { hasValues } from '../../../../helper/linked';
+
 import { Queue } from '../queue';
 
 describe('queue', () => {
@@ -53,12 +56,3 @@ describe('queue', () => {
     expect(q.toArray()).toEqual(['B', 'C', 'X', 'Y', 'Z']);
   });
 });
-
-function hasValues<T>(q: Queue<T>, values: T[]) {
-  const callList = values.map((value) => [value]);
-  const mock = jest.fn();
-  for (let v of q) {
-    mock(v);
-  }
-  expect(mock.mock.calls).toEqual(callList);
-}

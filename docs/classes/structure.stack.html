@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Queue | @pencroff/ts-algorithms</title>
+	<title>Stack | @pencroff/ts-algorithms</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/structure.html">structure</a>
 				</li>
 				<li>
-					<a href="structure.queue.html">Queue</a>
+					<a href="structure.stack.html">Stack</a>
 				</li>
 			</ul>
-			<h1>Class Queue&lt;T&gt;</h1>
+			<h1>Class Stack&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -72,17 +72,20 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<h2 id="queue-fifo-first-in-first-out-">Queue (FIFO - first-in-first-out)</h2>
+						<h2 id="stack-lifo-last-in-first-out-">Stack (LIFO - last-in-first-out)</h2>
 					</div>
-					<p>In computer science, a queue is a collection of entities that are maintained in a sequence and can be modified
-						by the addition of entities at one end of the sequence and removal from the other end of the sequence. By convention,
-						the end of the sequence at which elements are added is called the back or rear of the queue and the end at which
-						elements are removed is called the head or front of the queue, analogously to the words used when people line up
-						to wait for goods or services. The operation of adding an element to the rear of the queue is known as enqueue,
-						and the operation of removing an element from the front is known as dequeue. Other operations may also be allowed,
-						often including a peek or front operation that returns the value of the next element to be dequeued without
-					dequeuing it.</p>
-					<p><img src="https://thepracticaldev.s3.amazonaws.com/i/lkgf80jmtry868zwknri.png" alt="Queue">
+					<p>In computer science, a stack is an abstract data type that serves as a collection of elements, with two
+					principal operations:</p>
+					<ul>
+						<li>push, which adds an element to the collection, and</li>
+						<li>pop, which removes the most recently added element that was not yet removed.</li>
+					</ul>
+					<p>The order in which elements come off a stack gives rise to its alternative name, LIFO (last in, first out).
+						Additionally, a peek operation may give access to the top without modifying the stack. The name &quot;stack&quot; for
+						this type of structure comes from the analogy to a set of physical items stacked on top of each other, which makes
+						it easy to take an item off the top of the stack, while getting to an item deeper in the stack may require taking
+					off multiple other items first.</p>
+					<p><img src="https://thepracticaldev.s3.amazonaws.com/i/mwcwre09s12vqa3gvl7a.png" alt="Stack">
 					source: dev.to</p>
 					<h3 id="complexity">Complexity</h3>
 					<table>
@@ -126,11 +129,11 @@
 					</tbody></table>
 					<h3 id="reference">Reference</h3>
 					<ul>
-						<li><a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)">Queue</a></li>
+						<li><a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">Stack</a></li>
 					</ul>
-					<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Queue } <span class="hljs-keyword">from</span> <span class="hljs-string">'@pencroff/ts-algorithms/dist/structure/linked'</span>;
-<span class="hljs-keyword">const</span> q = <span class="hljs-keyword">new</span> Queue([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])</code></pre>
-					<p><strong>Queue</strong> based on <a href="structure.linkedlist.html">LinkedList</a></p>
+					<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Stack } <span class="hljs-keyword">from</span> <span class="hljs-string">'@pencroff/ts-algorithms/dist/structure/linked'</span>;
+<span class="hljs-keyword">const</span> q = <span class="hljs-keyword">new</span> Stack([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])</code></pre>
+					<p><strong>Stack</strong> based on <a href="structure.linkedlist.html">LinkedList</a></p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-type-parameters">
@@ -145,7 +148,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Queue</span>
+						<span class="target">Stack</span>
 					</li>
 				</ul>
 			</section>
@@ -156,31 +159,31 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="structure.queue.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="structure.stack.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="structure.queue.html#_list" class="tsd-kind-icon">_list</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="structure.stack.html#_list" class="tsd-kind-icon">_list</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="structure.queue.html#length" class="tsd-kind-icon">length</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="structure.stack.html#length" class="tsd-kind-icon">length</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.queue.html#___iterator" class="tsd-kind-icon">__@iterator</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.queue.html#clear" class="tsd-kind-icon">clear</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.queue.html#dequeue" class="tsd-kind-icon">dequeue</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.queue.html#enqueue" class="tsd-kind-icon">enqueue</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.queue.html#has" class="tsd-kind-icon">has</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.queue.html#peek" class="tsd-kind-icon">peek</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.queue.html#toarray" class="tsd-kind-icon">to<wbr>Array</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.stack.html#___iterator" class="tsd-kind-icon">__@iterator</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.stack.html#clear" class="tsd-kind-icon">clear</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.stack.html#has" class="tsd-kind-icon">has</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.stack.html#peek" class="tsd-kind-icon">peek</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.stack.html#pop" class="tsd-kind-icon">pop</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.stack.html#push" class="tsd-kind-icon">push</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.stack.html#toarray" class="tsd-kind-icon">to<wbr>Array</a></li>
 							</ul>
 						</section>
 					</div>
@@ -192,18 +195,18 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Queue<span class="tsd-signature-symbol">(</span>initArr<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="structure.queue.html" class="tsd-signature-type">Queue</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Stack<span class="tsd-signature-symbol">(</span>initArr<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="structure.stack.html" class="tsd-signature-type">Stack</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/queue.ts#L45">structure/linked/queue.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/stack.ts#L48">structure/linked/stack.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Queue constructor</p>
+									<p>Stack constructor</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -217,7 +220,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="structure.queue.html" class="tsd-signature-type">Queue</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="structure.stack.html" class="tsd-signature-type">Stack</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -230,7 +233,7 @@
 					<div class="tsd-signature tsd-kind-icon">_list<span class="tsd-signature-symbol">:</span> <a href="structure.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/queue.ts#L45">structure/linked/queue.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/stack.ts#L48">structure/linked/stack.ts:48</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -247,7 +250,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/queue.ts#L55">structure/linked/queue.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/stack.ts#L58">structure/linked/stack.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -267,12 +270,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/queue.ts#L64">structure/linked/queue.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/stack.ts#L67">structure/linked/stack.ts:67</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Queue iterator for iteration across all nodes</p>
+									<p>Stack iterator for iteration across all nodes</p>
 								</div>
 								<p>Complexity: <strong>O(n)</strong></p>
 							</div>
@@ -290,69 +293,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/queue.ts#L120">structure/linked/queue.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/stack.ts#L122">structure/linked/stack.ts:122</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Clear all values in <a href="structure.queue.html">Queue</a></p>
+									<p>Clear all values in <a href="structure.stack.html">Stack</a></p>
 								</div>
 								<p>Complexity: <strong>O(1)</strong></p>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="dequeue" class="tsd-anchor"></a>
-					<h3>dequeue</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">dequeue<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/queue.ts#L84">structure/linked/queue.ts:84</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Take head value from <a href="structure.queue.html">Queue</a></p>
-								</div>
-								<p>Complexity: <strong>O(1)</strong></p>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="enqueue" class="tsd-anchor"></a>
-					<h3>enqueue</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">enqueue<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/queue.ts#L75">structure/linked/queue.ts:75</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Add new value to <a href="structure.queue.html">Queue</a> tail</p>
-								</div>
-								<p>Complexity: <strong>O(1)</strong></p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">T</span></h5>
-									<div class="tsd-comment tsd-typography">
-									</div>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -367,12 +316,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/queue.ts#L111">structure/linked/queue.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/stack.ts#L113">structure/linked/stack.ts:113</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Determines whether a value is in the <a href="structure.queue.html">Queue</a></p>
+									<p>Determines whether a value is in the <a href="structure.stack.html">Stack</a></p>
 								</div>
 								<p>Complexity: <strong>O(n)</strong></p>
 							</div>
@@ -398,16 +347,70 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/queue.ts#L95">structure/linked/queue.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/stack.ts#L76">structure/linked/stack.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Check value in <a href="structure.queue.html">Queue</a> head without removing it</p>
+									<p>Check value in <a href="structure.stack.html">Stack</a> tail without removing it</p>
 								</div>
 								<p>Complexity: <strong>O(1)</strong></p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="pop" class="tsd-anchor"></a>
+					<h3>pop</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">pop<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/stack.ts#L89">structure/linked/stack.ts:89</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Take tail value from <a href="structure.stack.html">Stack</a></p>
+								</div>
+								<p>Complexity: <strong>O(1)</strong></p>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="push" class="tsd-anchor"></a>
+					<h3>push</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">push<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/stack.ts#L102">structure/linked/stack.ts:102</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Add new value to <a href="structure.stack.html">Stack</a> tail</p>
+								</div>
+								<p>Complexity: <strong>O(1)</strong></p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -421,12 +424,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/queue.ts#L129">structure/linked/queue.ts:129</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/5947d19/src/structure/linked/stack.ts#L131">structure/linked/stack.ts:131</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Export <a href="structure.queue.html">Queue</a> to array</p>
+									<p>Export <a href="structure.stack.html">Stack</a> to array</p>
 								</div>
 								<p>Complexity: <strong>O(n)</strong></p>
 							</div>
@@ -467,48 +470,48 @@
 					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="structure.linkedlistnode.html" class="tsd-kind-icon">Linked<wbr>List<wbr>Node</a>
 					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="structure.queue.html" class="tsd-kind-icon">Queue</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="structure.queue.html" class="tsd-kind-icon">Queue</a>
+						<a href="structure.stack.html" class="tsd-kind-icon">Stack</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="structure.queue.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="structure.stack.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="structure.queue.html#_list" class="tsd-kind-icon">_list</a>
+								<a href="structure.stack.html#_list" class="tsd-kind-icon">_list</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="structure.queue.html#length" class="tsd-kind-icon">length</a>
+								<a href="structure.stack.html#length" class="tsd-kind-icon">length</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="structure.queue.html#___iterator" class="tsd-kind-icon">__@iterator</a>
+								<a href="structure.stack.html#___iterator" class="tsd-kind-icon">__@iterator</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="structure.queue.html#clear" class="tsd-kind-icon">clear</a>
+								<a href="structure.stack.html#clear" class="tsd-kind-icon">clear</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="structure.queue.html#dequeue" class="tsd-kind-icon">dequeue</a>
+								<a href="structure.stack.html#has" class="tsd-kind-icon">has</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="structure.queue.html#enqueue" class="tsd-kind-icon">enqueue</a>
+								<a href="structure.stack.html#peek" class="tsd-kind-icon">peek</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="structure.queue.html#has" class="tsd-kind-icon">has</a>
+								<a href="structure.stack.html#pop" class="tsd-kind-icon">pop</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="structure.queue.html#peek" class="tsd-kind-icon">peek</a>
+								<a href="structure.stack.html#push" class="tsd-kind-icon">push</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="structure.queue.html#toarray" class="tsd-kind-icon">to<wbr>Array</a>
+								<a href="structure.stack.html#toarray" class="tsd-kind-icon">to<wbr>Array</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="structure.stack.html" class="tsd-kind-icon">Stack</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
