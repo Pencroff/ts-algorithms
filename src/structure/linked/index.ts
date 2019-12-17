@@ -8,3 +8,4 @@ export * from './linked-list';
 export * from './linked-list-node';
 
 export * from './queue';
+export * from './stack';
