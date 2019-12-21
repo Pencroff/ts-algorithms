@@ -9,4 +9,6 @@
  * @module hash
  */
 
+export * from './type';
 export * from './sum32';
+

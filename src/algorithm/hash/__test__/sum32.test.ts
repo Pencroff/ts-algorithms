@@ -23,4 +23,8 @@ describe('sum 32', () => {
     const longStr = new Array(2**25).join('ÿ');
     expect(sum32(longStr)).toBeLessThan(2**32);
   });
+  it('should support pev value', () => {
+    const prev = sum32('ABC');
+    expect(sum32('1234567890', prev)).toBe(723);
+  });
 });
