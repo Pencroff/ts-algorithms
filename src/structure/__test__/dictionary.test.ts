@@ -66,7 +66,7 @@ describe('dictionary', () => {
       dict = new Dictionary(list);
     });
     it('should init values', () => {
-      list.forEach(([key, value]) => expect(dict.get(key)).toBe(value))
+      list.forEach(([key, value]) => expect(dict.get(key)).toBe(value));
     });
     it('should set value', () => {
       expect(dict.length).toBe(3);
@@ -74,6 +74,123 @@ describe('dictionary', () => {
       expect(dict.get('keyZ')).toBe('Z');
       expect(dict.length).toBe(4);
     });
+    it('should update value', () => {
+      dict.set('keyA', 'ZZZ');
+      expect(dict.get('keyA')).toBe('ZZZ');
+    });
+    it('should get undefined for not available key', () => {
+      expect(dict.get('keyX')).toBeUndefined();
+    });
   });
-
+  describe('iterate key/values/tuples', () => {
+    let list: [string, string][];
+    let dict: Dictionary<string>;
+    beforeEach(() => {
+      list = [
+        ['keyA', 'A'],
+        ['keyB', 'B'],
+        ['keyC', 'C'],
+      ];
+      dict = new Dictionary(list);
+    });
+    it('iterate keys', () => {
+      const keyList = [];
+      const expectedKeyList = list.map((record) => record[0]).sort();
+      for (let key of dict.keys()) {
+        keyList.push(key);
+      }
+      keyList.sort();
+      expect(keyList).toEqual(expectedKeyList);
+    });
+    it('iterate values', () => {
+      const valueList = [];
+      const expectedValueList = list.map((record) => record[1]).sort();
+      for (let value of dict.values()) {
+        valueList.push(value);
+      }
+      valueList.sort();
+      expect(valueList).toEqual(expectedValueList);
+    });
+    it('iterate tuples', () => {
+      const comparator = (a: string[], b: string[]) =>
+        (a[0] === b[0]) ? 0 : (a[0] < b[0]) ? -1 : 1;
+      const tupleList = [];
+      for (let tuple of dict) {
+        tupleList.push(tuple);
+      }
+      tupleList.sort(comparator);
+      list.sort(comparator);
+      expect(tupleList).toEqual(list);
+    });
+  });
+  describe('has key/value', () => {
+    let list: [string, string][];
+    let dict: Dictionary<string>;
+    beforeEach(() => {
+      list = [
+        ['keyA', 'A'],
+        ['keyB', 'B'],
+        ['keyC', 'C'],
+      ];
+      dict = new Dictionary(list);
+    });
+    it('should check key', () => {
+      expect(dict.hasKey('keyC')).toBe(true);
+      expect(dict.hasKey('keyX')).toBe(false);
+    });
+    it('should check value', () => {
+      expect(dict.hasValue('C')).toBe(true);
+      expect(dict.hasValue('X')).toBe(false);
+    });
+  });
+  describe('remove/clear', () => {
+    let list: [string, string][];
+    let dict: Dictionary<string>;
+    beforeEach(() => {
+      list = [
+        ['keyA', 'A'],
+        ['keyB', 'B'],
+        ['keyC', 'C'],
+      ];
+      dict = new Dictionary(list);
+    });
+    it('should remove value by key', () => {
+      expect(dict.remove('keyA')).toBe(true);
+      expect(dict.length).toBe(2);
+      expect(dict.remove('keyB')).toBe(true);
+      expect(dict.remove('keyA')).toBe(false);
+      expect(dict.remove('keyB')).toBe(false);
+      expect(dict.hasKey('keyA')).toBe(false);
+      expect(dict.hasKey('keyB')).toBe(false);
+      expect(dict.hasKey('keyC')).toBe(true);
+      expect(dict.get('keyA')).toBeUndefined();
+      expect(dict.get('keyB')).toBeUndefined();
+      expect(dict.get('keyC')).toBe('C');
+      expect(dict.length).toBe(1);
+    });
+    it('should clear all records', () => {
+      expect(dict.length).toBe(3);
+      dict.clear();
+      expect(dict.length).toBe(0);
+      const keyArr = Array.from(dict.keys());
+      expect(keyArr).toEqual([]);
+    });
+  });
+  describe('toArray', () => {
+    let list: [string, string][];
+    let dict: Dictionary<string>;
+    beforeEach(() => {
+      list = [
+        ['keyZ', 'Z'],
+        ['key1', '1'],
+        ['keyA', 'A'],
+        ['keyB', 'B'],
+      ];
+      dict = new Dictionary(list);
+    });
+    it('should export tuples', () => {
+      const arr = dict.toArray();
+      expect(arr).toEqual(list);
+    });
+  });
 });
