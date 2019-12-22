@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>structure | @pencroff/ts-algorithms</title>
+	<title>DictionaryOptions | @pencroff/ts-algorithms</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,38 +56,81 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="structure.html">structure</a>
+					<a href="../modules/structure.html">structure</a>
+				</li>
+				<li>
+					<a href="structure.dictionaryoptions.html">DictionaryOptions</a>
 				</li>
 			</ul>
-			<h1>External module structure</h1>
+			<h1>Interface DictionaryOptions&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>T</h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">DictionaryOptions</span>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Classes</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter"><a href="../classes/structure.dictionary.html" class="tsd-kind-icon">Dictionary</a></li>
-								<li class="tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported"><a href="../classes/structure.dictionaryrecord.html" class="tsd-kind-icon">Dictionary<wbr>Record</a></li>
-								<li class="tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter"><a href="../classes/structure.linkedlist.html" class="tsd-kind-icon">Linked<wbr>List</a></li>
-								<li class="tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter"><a href="../classes/structure.linkedlistnode.html" class="tsd-kind-icon">Linked<wbr>List<wbr>Node</a></li>
-								<li class="tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter"><a href="../classes/structure.queue.html" class="tsd-kind-icon">Queue</a></li>
-								<li class="tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter"><a href="../classes/structure.stack.html" class="tsd-kind-icon">Stack</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Interfaces</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter"><a href="../interfaces/structure.dictionaryoptions.html" class="tsd-kind-icon">Dictionary<wbr>Options</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="structure.dictionaryoptions.html#comparator" class="tsd-kind-icon">comparator</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="structure.dictionaryoptions.html#hashfn" class="tsd-kind-icon">hash<wbr>Fn</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="structure.dictionaryoptions.html#size" class="tsd-kind-icon">size</a></li>
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="comparator" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> comparator</h3>
+					<div class="tsd-signature tsd-kind-icon">comparator<span class="tsd-signature-symbol">:</span> <a href="../modules/primitive.html#comparatorfn" class="tsd-signature-type">ComparatorFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L13">structure/dictionary.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="hashfn" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> hash<wbr>Fn</h3>
+					<div class="tsd-signature tsd-kind-icon">hash<wbr>Fn<span class="tsd-signature-symbol">:</span> <a href="../modules/hash.html#stringhash32fn" class="tsd-signature-type">StringHash32Fn</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L12">structure/dictionary.ts:12</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="size" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> size</h3>
+					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L11">structure/dictionary.ts:11</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -98,22 +141,22 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="error.html">error</a>
+						<a href="../modules/error.html">error</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="hash.html">hash</a>
+						<a href="../modules/hash.html">hash</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="primitive.html">primitive</a>
+						<a href="../modules/primitive.html">primitive</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="search.html">search</a>
+						<a href="../modules/search.html">search</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="sort.html">sort</a>
+						<a href="../modules/sort.html">sort</a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="structure.html">structure</a>
+						<a href="../modules/structure.html">structure</a>
 					</li>
 				</ul>
 			</nav>
@@ -137,9 +180,24 @@
 					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="../classes/structure.stack.html" class="tsd-kind-icon">Stack</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../interfaces/structure.dictionaryoptions.html" class="tsd-kind-icon">Dictionary<wbr>Options</a>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="structure.dictionaryoptions.html" class="tsd-kind-icon">Dictionary<wbr>Options</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="structure.dictionaryoptions.html#comparator" class="tsd-kind-icon">comparator</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="structure.dictionaryoptions.html#hashfn" class="tsd-kind-icon">hash<wbr>Fn</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="structure.dictionaryoptions.html#size" class="tsd-kind-icon">size</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>

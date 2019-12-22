@@ -4,7 +4,6 @@
 
 import { LinkedList, LinkedListNode } from './linked';
 import { StringHash32Fn, sum32 } from '../algorithm/hash';
-import { NotImplementedError } from '../error/not-implemented.error';
 import { ComparatorFn, genericComparator } from '../primitive/comparator';
 
 
@@ -13,10 +12,6 @@ export interface DictionaryOptions<T> {
   hashFn?: StringHash32Fn;
   comparator?: ComparatorFn<T>;
 }
-
-const DEFAULT_SIZE = 8;
-const DEFAULT_HASHFN = sum32;
-const SIZE_INCREASE_COEF = 0.25;
 
 class DictionaryRecord<T> {
   constructor(public hashValue: number, public key?: string, public value?: T) {
@@ -34,21 +29,29 @@ export class Dictionary<T> implements Iterable<[string, T]> {
     const comparator = this.getComparator(sizeOptions as DictionaryOptions<T>);
     this.options = { size, hashFn, comparator };
     this._len = 0;
-    this.buckets = new Array(this.size).fill(null).map(() =>
-      new LinkedList<DictionaryRecord<T>>(null, (a, b) => a.hashValue === b.hashValue ? 0 : -1));
+    this.buckets = this.createBuckets(size);
     if (Array.isArray(initArr)) {
       initArr.forEach(([key, value]) => this.set(key, value));
     }
   }
 
+  /**
+   * Number elements in dictionary
+   */
   get length(): number {
     return this._len;
   }
 
+  /**
+   * Dictionary capacity, before resizing
+   */
   get size(): number {
     return this.options.size;
   }
 
+  /**
+   * Current hash function
+   */
   get hashFn(): StringHash32Fn {
     return this.options.hashFn;
   }
@@ -183,7 +186,9 @@ export class Dictionary<T> implements Iterable<[string, T]> {
    */
   resize(): boolean {
     const newSize = this.getNewSize(this.size);
+    const newBuckets = this.createBuckets(newSize, this.buckets);
     this.options.size = newSize;
+    this.buckets = newBuckets;
     return true;
   }
 
@@ -194,12 +199,19 @@ export class Dictionary<T> implements Iterable<[string, T]> {
     }
   }
 
-  toArray(): [string, T][] {
-    const res: [string, T][] = [];
-    for (let tuple of this) {
-      res.push(tuple);
+  createBuckets(newSize: number, oldBuckets?: LinkedList<DictionaryRecord<T>>[]) {
+    const newBuckets = new Array(newSize).fill(null).map(() =>
+      new LinkedList<DictionaryRecord<T>>(null, (a, b) => a.hashValue === b.hashValue ? 0 : -1));
+    if (oldBuckets) {
+      for (let bucket of oldBuckets) {
+        for (let dictRecord of bucket) {
+          const { hashValue, key, value } = dictRecord;
+          const bucketIdx = hashValue % newSize;
+          newBuckets[bucketIdx].insertLast(new DictionaryRecord(hashValue, key, value));
+        }
+      }
     }
-    return res;
+    return newBuckets;
   }
 
   private getNodeByKey(key: string): [LinkedListNode<DictionaryRecord<T>>,
@@ -213,12 +225,27 @@ export class Dictionary<T> implements Iterable<[string, T]> {
   }
 
   private getNewSize(oldSize: number): number {
-    const delta = oldSize * SIZE_INCREASE_COEF;
+    const SIZE_INCREASE_COEF_100 = 1;
+    const SIZE_INCREASE_GRADE_50 = 16;
+    const SIZE_INCREASE_COEF_50 = 0.5;
+    const SIZE_INCREASE_GRADE_25 = 32;
+    const SIZE_INCREASE_COEF_25 = 0.25;
+
+    let coef = SIZE_INCREASE_COEF_25;
+    if (oldSize < SIZE_INCREASE_GRADE_25) {
+        coef = SIZE_INCREASE_COEF_50
+    }
+    if (oldSize < SIZE_INCREASE_GRADE_50) {
+      coef = SIZE_INCREASE_COEF_100
+    }
+    const delta = oldSize * coef;
     const newSize = Math.round(oldSize + delta);
     return newSize;
   }
 
   private getSize(sizeOptions: number | DictionaryOptions<T>): number {
+    const DEFAULT_SIZE = 8;
+
     let size = DEFAULT_SIZE;
     if (typeof sizeOptions === 'number' && sizeOptions !== 0) {
       size = sizeOptions;
@@ -229,6 +256,8 @@ export class Dictionary<T> implements Iterable<[string, T]> {
   }
 
   private getHashFn(options: DictionaryOptions<T>): StringHash32Fn {
+    const DEFAULT_HASHFN = sum32;
+
     let fn = DEFAULT_HASHFN;
     if (options && options.hashFn) {
       fn = options.hashFn;

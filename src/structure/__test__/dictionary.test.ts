@@ -51,7 +51,7 @@ describe('dictionary', () => {
         ['keyI', 'I'],
       ]);
       expect(dict.length).toBe(9);
-      expect(dict.size).toBe(10);
+      expect(dict.size).toBe(16);
     });
   });
   describe('set/get', () => {
@@ -176,21 +176,41 @@ describe('dictionary', () => {
       expect(keyArr).toEqual([]);
     });
   });
-  describe('toArray', () => {
-    let list: [string, string][];
-    let dict: Dictionary<string>;
+  describe('resize', () => {
+    let dict: Dictionary<number>;
     beforeEach(() => {
-      list = [
-        ['keyZ', 'Z'],
-        ['key1', '1'],
-        ['keyA', 'A'],
-        ['keyB', 'B'],
-      ];
-      dict = new Dictionary(list);
+      dict = new Dictionary<number>(null, 4);
     });
-    it('should export tuples', () => {
-      const arr = dict.toArray();
-      expect(arr).toEqual(list);
+    it('should increase size 100%', () => {
+      addToDict(dict, 4);
+      expect(dict.length).toBe(4);
+      expect(dict.size).toBe(4);
+      expect(dict.hasValue(3)).toBe(true);
+      addToDict(dict, 1);
+      expect(dict.length).toBe(5);
+      expect(dict.size).toBe(8);
+      expect(dict.hasValue(4)).toBe(true);
+      addToDict(dict, 4);
+      expect(dict.length).toBe(9);
+      expect(dict.size).toBe(16);
+      expect(dict.hasValue(8)).toBe(true);
+    });
+    it('should increase size 50%', () => {
+      addToDict(dict, 17);
+      expect(dict.length).toBe(17);
+      expect(dict.size).toBe(24);
+      expect(dict.hasValue(16)).toBe(true);
+      addToDict(dict, 8);
+      expect(dict.length).toBe(25);
+      expect(dict.size).toBe(36);
+      expect(dict.hasValue(24)).toBe(true);
     });
   });
 });
+
+function addToDict(dict: Dictionary<number>, numberElements: number) {
+  const len = dict.length;
+  for (let i = len; i < (len + numberElements); i += 1) {
+    dict.set(`key${i}`, i);
+  }
+}
