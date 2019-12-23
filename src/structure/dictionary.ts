@@ -6,23 +6,84 @@ import { LinkedList, LinkedListNode } from './linked';
 import { StringHash32Fn, sum32 } from '../algorithm/hash';
 import { ComparatorFn, genericComparator } from '../primitive/comparator';
 
-
+/**
+ * Options for configuring [[Dictionary]] instance
+ */
 export interface DictionaryOptions<T> {
+  /**
+   * Initial bucket size
+   */
   size?: number;
+  /**
+   * function for hashing keys (strings at the moment)
+   */
   hashFn?: StringHash32Fn;
+  /**
+   * comparator for searching by value in [[Dictionary]]
+   */
   comparator?: ComparatorFn<T>;
 }
 
+/**
+ * Internal dictionary record, not for external usage
+ * @ignore
+ */
 class DictionaryRecord<T> {
   constructor(public hashValue: number, public key?: string, public value?: T) {
   }
 }
 
+/**
+ * ## Dictionary (hash table)
+ *
+ * In computing, a hash table (hash map) is a data structure that implements an associative array abstract data type,
+ * a structure that can map keys to values. A hash table uses a hash function to compute an index, also called a hash
+ * code, into an array of buckets or slots, from which the desired value can be found.
+ * Ideally, the hash function will assign each key to a unique bucket, but most hash table designs employ an imperfect
+ * hash function, which might cause hash collisions where the hash function generates the same index for more than one
+ * key. Such collisions are always accommodated in some way.
+ *
+ * ![hash table](https://www.tutorialspoint.com/data_structures_algorithms/images/hash_function.jpg)
+ * source: tutorialspoint.com
+ *
+ * ### Complexity
+ *
+ * | Algorithm | Average | Worst case |
+ * | - | - | - |
+ * | Access | `O(1)` | `O(n)` |
+ * | Search (by key) | `O(1)` | `O(n)` |
+ * | Search (by value) | `O(n)` | `O(n)` |
+ * | Insert | `O(1)` | `O(n)` |
+ * | Delete | `O(1)` | `O(n)` |
+ * | - | - | - |
+ * | Space | `O(n)` | `O(n)` |
+ *
+ * ### Reference
+ *
+ * * [Hash table](https://en.wikipedia.org/wiki/Hash_table)
+ *
+ * ```typescript
+ * import { Dictionary } from '@pencroff/ts-algorithms/dist/structure/dictionary';
+ * const q = new Dictionary([1, 2, 3])
+ * ```
+ *
+ * **Dictionary** used [[LinkedList]] for buckets and [[sum32]] as hashing function (selected for simplicity).
+ *
+ * At the moment [[Dictionary]] keys expected to be `string`
+ *
+ * #### Note:
+ * Native JS object is kind of [[Dictionary]]
+ */
 export class Dictionary<T> implements Iterable<[string, T]> {
   private options: DictionaryOptions<T>;
   private _len: number;
   private buckets: LinkedList<DictionaryRecord<T>>[];
 
+  /**
+   * Dictionary constructor
+   * @param initArr initial data as array of tuples - [key, value]
+   * @param sizeOptions initial Dictionary size or [[DictionaryOptions]] object
+   */
   constructor(initArr?: [string, T][], sizeOptions?: number | DictionaryOptions<T>) {
     const size = this.getSize(sizeOptions);
     const hashFn = this.getHashFn(sizeOptions as DictionaryOptions<T>);
@@ -56,6 +117,11 @@ export class Dictionary<T> implements Iterable<[string, T]> {
     return this.options.hashFn;
   }
 
+  /**
+   * Dictionary iterator for iteration across all key-value tuples
+   *
+   * Complexity: **O(n)**
+   */
   [Symbol.iterator](): Iterator<[string, T]> {
     let bucketIdx = 0;
     const size = this.size;
@@ -88,6 +154,11 @@ export class Dictionary<T> implements Iterable<[string, T]> {
     }
   }
 
+  /**
+   * Dictionary iterator for iteration across all keys
+   *
+   * Complexity: **O(n)**
+   */
   keys(): Iterable<string> {
     const iterator = this[Symbol.iterator]();
     return {
@@ -105,6 +176,11 @@ export class Dictionary<T> implements Iterable<[string, T]> {
     }
   }
 
+  /**
+   * Dictionary iterator for iteration across all values
+   *
+   * Complexity: **O(n)**
+   */
   values(): Iterable<T> {
     const iterator = this[Symbol.iterator]();
     return {
@@ -122,6 +198,13 @@ export class Dictionary<T> implements Iterable<[string, T]> {
     }
   }
 
+  /**
+   * Set / update value in [[Dictionary]] by key
+   * @param key
+   * @param value
+   *
+   * Complexity: **O(1)** / **O(n)**
+   */
   set(key: string, value: T) {
     if (this.length === this.size) {
       this.resize();
@@ -135,6 +218,12 @@ export class Dictionary<T> implements Iterable<[string, T]> {
     }
   }
 
+  /**
+   * Get value from [[Dictionary]] by key
+   * @param key
+   *
+   * Complexity: **O(1)** / **O(n)**
+   */
   get(key: string): T {
     let res: T;
     const [node] = this.getNodeByKey(key);
@@ -144,6 +233,13 @@ export class Dictionary<T> implements Iterable<[string, T]> {
     return res;
   }
 
+  /**
+   * Remove value from [[Dictionary]] by key
+   * @param key
+   * @return `true` if key-value was really deleted, `false` if no key available
+   *
+   * Complexity: **O(1)** / **O(n)**
+   */
   remove(key: string): boolean {
     let res = false;
     const [node, hashValue, list] = this.getNodeByKey(key);
@@ -155,6 +251,12 @@ export class Dictionary<T> implements Iterable<[string, T]> {
     return res;
   }
 
+  /**
+   * Check if [[Dictionary]] has a `key`
+   * @param key
+   *
+   * Complexity: **O(1)** / **O(n)**
+   */
   hasKey(key: string): boolean {
     let res = false;
     for (let dictKey of this.keys()) {
@@ -166,6 +268,12 @@ export class Dictionary<T> implements Iterable<[string, T]> {
     return res;
   }
 
+  /**
+   * Check if [[Dictionary]] has a `value`
+   * @param value
+   *
+   * Complexity: **O(n)**
+   */
   hasValue(value: T): boolean {
     let res = false;
     for (let dictValue of this.values()) {
@@ -180,7 +288,7 @@ export class Dictionary<T> implements Iterable<[string, T]> {
   /**
    * Resize dictionary for most efficient data access
    * Called automatically, if length equal size, before insert new key-value pair
-   * Increased size 25% of prev value
+   * Increased size 25% of prev value, 100% or 50% for size less then 32
    *
    * Complexity: **O(n)**
    */
@@ -192,6 +300,11 @@ export class Dictionary<T> implements Iterable<[string, T]> {
     return true;
   }
 
+  /**
+   * Clear all values in [[Dictionary]]
+   *
+   * Complexity: **O(n)**
+   */
   clear(): void {
     this._len = 0;
     for (let list of this.buckets) {
@@ -199,7 +312,7 @@ export class Dictionary<T> implements Iterable<[string, T]> {
     }
   }
 
-  createBuckets(newSize: number, oldBuckets?: LinkedList<DictionaryRecord<T>>[]) {
+  private createBuckets(newSize: number, oldBuckets?: LinkedList<DictionaryRecord<T>>[]) {
     const newBuckets = new Array(newSize).fill(null).map(() =>
       new LinkedList<DictionaryRecord<T>>(null, (a, b) => a.hashValue === b.hashValue ? 0 : -1));
     if (oldBuckets) {

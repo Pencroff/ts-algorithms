@@ -69,6 +69,76 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<h2 id="dictionary-hash-table-">Dictionary (hash table)</h2>
+					</div>
+					<p>In computing, a hash table (hash map) is a data structure that implements an associative array abstract data type,
+						a structure that can map keys to values. A hash table uses a hash function to compute an index, also called a hash
+						code, into an array of buckets or slots, from which the desired value can be found.
+						Ideally, the hash function will assign each key to a unique bucket, but most hash table designs employ an imperfect
+						hash function, which might cause hash collisions where the hash function generates the same index for more than one
+					key. Such collisions are always accommodated in some way.</p>
+					<p><img src="https://www.tutorialspoint.com/data_structures_algorithms/images/hash_function.jpg" alt="hash table">
+					source: tutorialspoint.com</p>
+					<h3 id="complexity">Complexity</h3>
+					<table>
+						<thead>
+							<tr>
+								<th>Algorithm</th>
+								<th>Average</th>
+								<th>Worst case</th>
+							</tr>
+						</thead>
+						<tbody><tr>
+								<td>Access</td>
+								<td><code>O(1)</code></td>
+								<td><code>O(n)</code></td>
+							</tr>
+							<tr>
+								<td>Search (by key)</td>
+								<td><code>O(1)</code></td>
+								<td><code>O(n)</code></td>
+							</tr>
+							<tr>
+								<td>Search (by value)</td>
+								<td><code>O(n)</code></td>
+								<td><code>O(n)</code></td>
+							</tr>
+							<tr>
+								<td>Insert</td>
+								<td><code>O(1)</code></td>
+								<td><code>O(n)</code></td>
+							</tr>
+							<tr>
+								<td>Delete</td>
+								<td><code>O(1)</code></td>
+								<td><code>O(n)</code></td>
+							</tr>
+							<tr>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+							</tr>
+							<tr>
+								<td>Space</td>
+								<td><code>O(n)</code></td>
+								<td><code>O(n)</code></td>
+							</tr>
+					</tbody></table>
+					<h3 id="reference">Reference</h3>
+					<ul>
+						<li><a href="https://en.wikipedia.org/wiki/Hash_table">Hash table</a></li>
+					</ul>
+					<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Dictionary } <span class="hljs-keyword">from</span> <span class="hljs-string">'@pencroff/ts-algorithms/dist/structure/dictionary'</span>;
+<span class="hljs-keyword">const</span> q = <span class="hljs-keyword">new</span> Dictionary([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])</code></pre>
+					<p><strong>Dictionary</strong> used <a href="structure.linkedlist.html">LinkedList</a> for buckets and <a href="../modules/hash.html#sum32">sum32</a> as hashing function (selected for simplicity).</p>
+					<p>At the moment <a href="structure.dictionary.html">Dictionary</a> keys expected to be <code>string</code></p>
+					<h4 id="note-">Note:</h4>
+					<p>Native JS object is kind of <a href="structure.dictionary.html">Dictionary</a></p>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-type-parameters">
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
@@ -122,7 +192,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.dictionary.html#___iterator" class="tsd-kind-icon">__@iterator</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.dictionary.html#clear" class="tsd-kind-icon">clear</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.dictionary.html#createbuckets" class="tsd-kind-icon">create<wbr>Buckets</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="structure.dictionary.html#createbuckets" class="tsd-kind-icon">create<wbr>Buckets</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.dictionary.html#get" class="tsd-kind-icon">get</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="structure.dictionary.html#getcomparator" class="tsd-kind-icon">get<wbr>Comparator</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="structure.dictionary.html#gethashfn" class="tsd-kind-icon">get<wbr>Hash<wbr>Fn</a></li>
@@ -153,16 +223,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L24">structure/dictionary.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L80">structure/dictionary.ts:80</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Dictionary constructor</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> initArr: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>initial data as array of tuples - [key, value]</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sizeOptions: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/structure.dictionaryoptions.html" class="tsd-signature-type">DictionaryOptions</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>initial Dictionary size or <a href="../interfaces/structure.dictionaryoptions.html">DictionaryOptions</a> object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="structure.dictionary.html" class="tsd-signature-type">Dictionary</a></h4>
@@ -178,17 +263,17 @@
 					<div class="tsd-signature tsd-kind-icon">_len<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L23">structure/dictionary.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L79">structure/dictionary.ts:79</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="buckets" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> buckets</h3>
-					<div class="tsd-signature tsd-kind-icon">buckets<span class="tsd-signature-symbol">:</span> <a href="structure.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><a href="structure.dictionaryrecord.html" class="tsd-signature-type">DictionaryRecord</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></div>
+					<div class="tsd-signature tsd-kind-icon">buckets<span class="tsd-signature-symbol">:</span> <a href="structure.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DictionaryRecord</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L24">structure/dictionary.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L80">structure/dictionary.ts:80</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -198,7 +283,7 @@
 					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/structure.dictionaryoptions.html" class="tsd-signature-type">DictionaryOptions</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L22">structure/dictionary.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L78">structure/dictionary.ts:78</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -215,7 +300,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L55">structure/dictionary.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L116">structure/dictionary.ts:116</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -237,7 +322,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L41">structure/dictionary.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L102">structure/dictionary.ts:102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -259,7 +344,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L48">structure/dictionary.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L109">structure/dictionary.ts:109</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -284,9 +369,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L59">structure/dictionary.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L125">structure/dictionary.ts:125</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Dictionary iterator for iteration across all key-value tuples</p>
+								</div>
+								<p>Complexity: <strong>O(n)</strong></p>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -301,24 +392,30 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L195">structure/dictionary.ts:195</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L308">structure/dictionary.ts:308</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Clear all values in <a href="structure.dictionary.html">Dictionary</a></p>
+								</div>
+								<p>Complexity: <strong>O(n)</strong></p>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a name="createbuckets" class="tsd-anchor"></a>
-					<h3>create<wbr>Buckets</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Buckets<span class="tsd-signature-symbol">(</span>newSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, oldBuckets<span class="tsd-signature-symbol">?: </span><a href="structure.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><a href="structure.dictionaryrecord.html" class="tsd-signature-type">DictionaryRecord</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="structure.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><a href="structure.dictionaryrecord.html" class="tsd-signature-type">DictionaryRecord</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></li>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> create<wbr>Buckets</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Buckets<span class="tsd-signature-symbol">(</span>newSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, oldBuckets<span class="tsd-signature-symbol">?: </span><a href="structure.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DictionaryRecord</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="structure.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DictionaryRecord</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L202">structure/dictionary.ts:202</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L315">structure/dictionary.ts:315</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -327,10 +424,10 @@
 									<h5>newSize: <span class="tsd-signature-type">number</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> oldBuckets: <a href="structure.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><a href="structure.dictionaryrecord.html" class="tsd-signature-type">DictionaryRecord</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> oldBuckets: <a href="structure.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DictionaryRecord</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="structure.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><a href="structure.dictionaryrecord.html" class="tsd-signature-type">DictionaryRecord</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="structure.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DictionaryRecord</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -344,13 +441,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L138">structure/dictionary.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L227">structure/dictionary.ts:227</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get value from <a href="structure.dictionary.html">Dictionary</a> by key</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Complexity: <strong>O(1)</strong> / <strong>O(n)</strong></p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
@@ -367,7 +472,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L268">structure/dictionary.ts:268</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L381">structure/dictionary.ts:381</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -390,7 +495,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L258">structure/dictionary.ts:258</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L371">structure/dictionary.ts:371</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -413,7 +518,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L227">structure/dictionary.ts:227</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L340">structure/dictionary.ts:340</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -430,13 +535,13 @@
 					<a name="getnodebykey" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> get<wbr>Node<wbr>ByKey</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Node<wbr>ByKey<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><a href="structure.linkedlistnode.html" class="tsd-signature-type">LinkedListNode</a><span class="tsd-signature-symbol">&lt;</span><a href="structure.dictionaryrecord.html" class="tsd-signature-type">DictionaryRecord</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><a href="structure.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><a href="structure.dictionaryrecord.html" class="tsd-signature-type">DictionaryRecord</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Node<wbr>ByKey<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><a href="structure.linkedlistnode.html" class="tsd-signature-type">LinkedListNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DictionaryRecord</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><a href="structure.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DictionaryRecord</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L217">structure/dictionary.ts:217</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L330">structure/dictionary.ts:330</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -445,7 +550,7 @@
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><a href="structure.linkedlistnode.html" class="tsd-signature-type">LinkedListNode</a><span class="tsd-signature-symbol">&lt;</span><a href="structure.dictionaryrecord.html" class="tsd-signature-type">DictionaryRecord</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><a href="structure.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><a href="structure.dictionaryrecord.html" class="tsd-signature-type">DictionaryRecord</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><a href="structure.linkedlistnode.html" class="tsd-signature-type">LinkedListNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DictionaryRecord</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><a href="structure.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DictionaryRecord</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -459,7 +564,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L246">structure/dictionary.ts:246</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L359">structure/dictionary.ts:359</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -482,13 +587,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L158">structure/dictionary.ts:158</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L260">structure/dictionary.ts:260</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check if <a href="structure.dictionary.html">Dictionary</a> has a <code>key</code></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Complexity: <strong>O(1)</strong> / <strong>O(n)</strong></p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -505,13 +618,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L169">structure/dictionary.ts:169</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L277">structure/dictionary.ts:277</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check if <a href="structure.dictionary.html">Dictionary</a> has a <code>value</code></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Complexity: <strong>O(n)</strong></p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -528,9 +649,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L91">structure/dictionary.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L162">structure/dictionary.ts:162</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Dictionary iterator for iteration across all keys</p>
+								</div>
+								<p>Complexity: <strong>O(n)</strong></p>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -545,9 +672,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L147">structure/dictionary.ts:147</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L243">structure/dictionary.ts:243</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Remove value from <a href="structure.dictionary.html">Dictionary</a> by key</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -555,6 +687,8 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><code>true</code> if key-value was really deleted, <code>false</code> if no key available</p>
+							<p>Complexity: <strong>O(1)</strong> / <strong>O(n)</strong></p>
 						</li>
 					</ul>
 				</section>
@@ -568,14 +702,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L187">structure/dictionary.ts:187</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L295">structure/dictionary.ts:295</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Resize dictionary for most efficient data access
 										Called automatically, if length equal size, before insert new key-value pair
-									Increased size 25% of prev value</p>
+									Increased size 25% of prev value, 100% or 50% for size less then 32</p>
 								</div>
 								<p>Complexity: <strong>O(n)</strong></p>
 							</div>
@@ -593,9 +727,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L125">structure/dictionary.ts:125</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L208">structure/dictionary.ts:208</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set / update value in <a href="structure.dictionary.html">Dictionary</a> by key</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -603,6 +742,9 @@
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Complexity: <strong>O(1)</strong> / <strong>O(n)</strong></p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -619,9 +761,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/04b1ffc/src/structure/dictionary.ts#L108">structure/dictionary.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/f525429/src/structure/dictionary.ts#L184">structure/dictionary.ts:184</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Dictionary iterator for iteration across all values</p>
+								</div>
+								<p>Complexity: <strong>O(n)</strong></p>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -688,7 +836,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="structure.dictionary.html#clear" class="tsd-kind-icon">clear</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="structure.dictionary.html#createbuckets" class="tsd-kind-icon">create<wbr>Buckets</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -734,9 +882,6 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
-						<a href="structure.dictionaryrecord.html" class="tsd-kind-icon">Dictionary<wbr>Record</a>
-					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="structure.linkedlist.html" class="tsd-kind-icon">Linked<wbr>List</a>
 					</li>
