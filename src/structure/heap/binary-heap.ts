@@ -12,7 +12,11 @@ import { swap } from '../../primitive/swap';
  * the key (the value) of P is greater than or equal to the key of C. In a min heap, the key of P is less than or
  * equal to the key of C.[2] The node at the "top" of the heap (with no parents) is called the root node.
  *
+ * #### Min heap
  * ![min heap](https://www.tutorialspoint.com/data_structures_algorithms/images/min_heap_example.jpg)
+ * source: tutorialspoint.com
+ *
+ * #### Max heap
  * ![max heap](https://www.tutorialspoint.com/data_structures_algorithms/images/max_heap_example.jpg)
  * source: tutorialspoint.com
  *
