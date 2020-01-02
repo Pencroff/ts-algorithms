@@ -24,6 +24,7 @@ const res = genericComparator('A', 'B'); // returns -1, check primitives for det
     * [Queue (FIFO)](https://ts-algorithms.pencroff.com/classes/structure.queue.html)
     * [Stack (LIFO)](https://ts-algorithms.pencroff.com/classes/structure.stack.html)
     * [Dictionary (hash table, hash map)](https://ts-algorithms.pencroff.com/classes/structure.dictionary.html)
+    * [Heap (binary min heap)](https://ts-algorithms.pencroff.com/classes/structure.binaryheap.html)
 * Search
     * [Linear Search](https://ts-algorithms.pencroff.com/modules/search.html#linearindexof)
     * [Binary Search](https://ts-algorithms.pencroff.com/modules/search.html#binaryindexof)
