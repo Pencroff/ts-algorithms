@@ -2,10 +2,9 @@
  * Created by Pencroff on 15-Dec-2019.
  */
 
-// @ts-ignore
-import { hasValues } from '../../../../helper/linked';
-
 import { Queue } from '../queue';
+// @ts-ignore
+import { hasValues } from '../../../../helper/iterable';
 
 describe('queue', () => {
   let q: Queue<string>;

@@ -2,10 +2,9 @@
  * Created by Pencroff on 17-Dec-2019.
  */
 
-// @ts-ignore
-import { hasValues } from '../../../../helper/linked';
-
 import { Stack } from '../stack';
+// @ts-ignore
+import { hasValues } from '../../../../helper/iterable';
 
 describe('stack', () => {
   let stack: Stack<string>;

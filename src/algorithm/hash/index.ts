@@ -12,3 +12,5 @@
 export * from './type';
 export * from './sum32';
 
+// review
+// https://softwareengineering.stackexchange.com/questions/49550/which-hashing-algorithm-is-best-for-uniqueness-and-speed
