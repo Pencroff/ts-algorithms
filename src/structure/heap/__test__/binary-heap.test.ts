@@ -72,4 +72,16 @@ describe('binary.heap', () => {
     const heapStr = new BinaryHeap(['7', '4', '1', '8', '10'], genericComparator);
     hasValues(heapStr, ['1', '10', '4', '8', '7'])
   });
+  it('should work with large tree', () => {
+    heap = new BinaryHeap<number>([4, 9, 8, 17, 26, 50, 16, 19, 69, 32, 93, 65]);
+    hasValues(heap, [4, 9, 8, 17, 26, 50, 16, 19, 69, 32, 93, 65]);
+    heap.insert(7);
+    hasValues(heap, [4, 9, 7, 17, 26, 8, 16, 19, 69, 32, 93, 65, 50]);
+    heap.remove(4);
+    hasValues(heap, [7, 9, 8, 17, 26, 50, 16, 19, 69, 32, 93, 65]);
+    heap.replace(50, 5);
+    hasValues(heap, [ 5, 9, 7, 17, 26, 8, 16, 19, 69, 32, 93, 65]);
+    heap.replace(9, 99);
+    hasValues(heap, [ 5, 17, 7, 19, 26, 8, 16, 99, 69, 32, 93, 65]);
+  });
 });
