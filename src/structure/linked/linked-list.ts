@@ -99,6 +99,34 @@ export class LinkedList<T> implements Iterable<T> {
   }
 
   /**
+   * LinkedList iterator for backward iteration across all nodes
+   */
+  backward(): Iterable<T> {
+    let current = this.last;
+    return {
+      [Symbol.iterator](): Iterator<T> {
+        return {
+          next(...args): IteratorResult<T> {
+            if (current) {
+              const { value } = current;
+              current = current.prev;
+              return {
+                done: false,
+                value,
+              }
+            } else {
+              return {
+                done: true,
+                value: undefined
+              }
+            }
+          }
+        };
+      }
+    }
+  }
+
+  /**
    * Insert value or node after node
    *
    * Complexity: **O(1)**
