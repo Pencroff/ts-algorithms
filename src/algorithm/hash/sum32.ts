@@ -3,15 +3,17 @@
  */
 
 /**
- * Sum all characters codes in string (MAX 2^32)
+ * Sum all characters bytes in string (MAX 2^32)
  * @param v
  */
 export function sum32(v: string = '', prevRes = 0): number {
-  let sum = typeof prevRes === 'number' && prevRes || 0;
-  const LIMIT = 2**32;
-  for (let char of v) {
-    sum += char.codePointAt(0);
-    sum %= LIMIT;
+  let hash = typeof prevRes === 'number' && prevRes || 0;
+  const str = unescape(encodeURIComponent(v));
+  const len = str.length;
+  for (let i = 0; i < len; i += 1) {
+    const code = str.charCodeAt(i);
+    hash += code;
+    hash = hash >>> 0;
   }
-  return sum;
+  return hash;
 }

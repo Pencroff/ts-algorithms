@@ -3,7 +3,7 @@
  */
 
 import { LinkedList, LinkedListNode } from './linked';
-import { StringHash32Fn, sum32 } from '../algorithm/hash';
+import { StringHash32Fn, murmur2_32 } from '../algorithm/hash';
 import { ComparatorFn, genericComparator } from '../primitive/comparator';
 
 /**
@@ -67,7 +67,7 @@ class DictionaryRecord<T> {
  * const q = new Dictionary([1, 2, 3])
  * ```
  *
- * **Dictionary** used [[LinkedList]] for buckets and [[sum32]] as hashing function (selected for simplicity).
+ * **Dictionary** used [[LinkedList]] for buckets and [[murmur2_32]] as hashing function (selected as most randomness - [link](https://softwareengineering.stackexchange.com/a/145633)).
  *
  * At the moment [[Dictionary]] keys expected to be `string`
  *
@@ -369,7 +369,7 @@ export class Dictionary<T> implements Iterable<[string, T]> {
   }
 
   private getHashFn(options: DictionaryOptions<T>): StringHash32Fn {
-    const DEFAULT_HASHFN = sum32;
+    const DEFAULT_HASHFN = murmur2_32;
 
     let fn = DEFAULT_HASHFN;
     if (options && options.hashFn) {

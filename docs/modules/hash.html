@@ -66,6 +66,20 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Different hash algorithms</p>
+					</div>
+					<p>Refferences:</p>
+					<ul>
+						<li><a href="https://en.wikipedia.org/wiki/List_of_hash_functions">List</a></li>
+						<li><a href="https://softwareengineering.stackexchange.com/a/145633">Comparison</a></li>
+					</ul>
+					<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { fnv1a32, murmur2_32, murmur3_32, sum32 } <span class="hljs-keyword">from</span> <span class="hljs-string">'@pencroff/ts-algorithms/dist/algorithm/hash'</span>;
+<span class="hljs-keyword">const</span> res = fnv1a32(<span class="hljs-string">'Abc!'</span>); <span class="hljs-comment">// 157309246</span></code></pre>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -79,6 +93,9 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="hash.html#fnv1a32" class="tsd-kind-icon">fnv1a32</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="hash.html#murmur2_32" class="tsd-kind-icon">murmur2_<wbr>32</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="hash.html#murmur3_32" class="tsd-kind-icon">murmur3_<wbr>32</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="hash.html#sum32" class="tsd-kind-icon">sum32</a></li>
 							</ul>
 						</section>
@@ -93,7 +110,7 @@
 					<div class="tsd-signature tsd-kind-icon">String<wbr>Hash32<wbr>Fn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/739e5ba/src/algorithm/hash/type.ts#L8">algorithm/hash/type.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/b143a1f/src/algorithm/hash/type.ts#L20">algorithm/hash/type.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -130,6 +147,122 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="fnv1a32" class="tsd-anchor"></a>
+					<h3>fnv1a32</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">fnv1a32<span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, prevRes<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/b143a1f/src/algorithm/hash/fnv1a32.ts#L14">algorithm/hash/fnv1a32.ts:14</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>FNV1a non-cryptographic hash function - 32 bit (MAX 2^32)</p>
+								</div>
+								<h4 id="reference">Reference</h4>
+								<ul>
+									<li><a href="http://www.isthe.com/chongo/tech/comp/fnv/">fnv</a></li>
+									<li><a href="https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function">wiki</a></li>
+								</ul>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> v: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> prevRes: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="murmur2_32" class="tsd-anchor"></a>
+					<h3>murmur2_<wbr>32</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">murmur2_<wbr>32<span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, prevRes<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/b143a1f/src/algorithm/hash/murmur32.ts#L16">algorithm/hash/murmur32.ts:16</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>MurmurHash2 non-cryptographic hash function - 32 bits, supports unicode</p>
+								</div>
+								<h4 id="reference">Reference</h4>
+								<ul>
+									<li><a href="https://en.wikipedia.org/wiki/MurmurHash">wiki</a></li>
+									<li><a href="https://sites.google.com/site/murmurhash/">home</a></li>
+									<li><a href="https://github.com/garycourt/murmurhash-js">source</a></li>
+								</ul>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> v: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> prevRes: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="murmur3_32" class="tsd-anchor"></a>
+					<h3>murmur3_<wbr>32</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">murmur3_<wbr>32<span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, prevRes<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/b143a1f/src/algorithm/hash/murmur32.ts#L59">algorithm/hash/murmur32.ts:59</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>MurmurHash3 non-cryptographic hash function - 32 bits, supports unicode</p>
+								</div>
+								<h4 id="reference">Reference</h4>
+								<ul>
+									<li><a href="https://en.wikipedia.org/wiki/MurmurHash">wiki</a></li>
+									<li><a href="https://sites.google.com/site/murmurhash/">home</a></li>
+									<li><a href="https://github.com/garycourt/murmurhash-js">source</a></li>
+								</ul>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> v: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> prevRes: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="sum32" class="tsd-anchor"></a>
 					<h3>sum32</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -139,12 +272,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/739e5ba/src/algorithm/hash/sum32.ts#L9">algorithm/hash/sum32.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/b143a1f/src/algorithm/hash/sum32.ts#L9">algorithm/hash/sum32.ts:9</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sum all characters codes in string (MAX 2^32)</p>
+									<p>Sum all characters bytes in string (MAX 2^32)</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -171,6 +304,9 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_algorithm_hash_index_.html">"algorithm/hash/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="error.html">error</a>
 					</li>
 					<li class="current tsd-kind-external-module">
@@ -194,6 +330,15 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 						<a href="hash.html#stringhash32fn" class="tsd-kind-icon">String<wbr>Hash32<wbr>Fn</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="hash.html#fnv1a32" class="tsd-kind-icon">fnv1a32</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="hash.html#murmur2_32" class="tsd-kind-icon">murmur2_<wbr>32</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="hash.html#murmur3_32" class="tsd-kind-icon">murmur3_<wbr>32</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="hash.html#sum32" class="tsd-kind-icon">sum32</a>
