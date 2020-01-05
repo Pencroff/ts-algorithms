@@ -32,8 +32,8 @@ const res = genericComparator('A', 'B'); // returns -1, check primitives for det
     * [Quicksort](https://ts-algorithms.pencroff.com/modules/sort.html#qsort)
 * Hash functions
     * [fnv1a (32 bit)](https://ts-algorithms.pencroff.com/modules/hash.html#fnv1a32)
-    * [murmur2 (32 bit)](https://ts-algorithms.pencroff.com/modules/hash.html##murmur2_32)
-    * [murmur3 (32 bit)](https://ts-algorithms.pencroff.com/modules/hash.html##murmur3_32)
+    * [murmur2 (32 bit)](https://ts-algorithms.pencroff.com/modules/hash.html#murmur2_32)
+    * [murmur3 (32 bit)](https://ts-algorithms.pencroff.com/modules/hash.html#murmur3_32)
     * [Sum32](https://ts-algorithms.pencroff.com/modules/hash.html#sum32)
     
 
