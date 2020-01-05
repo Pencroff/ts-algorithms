@@ -110,6 +110,11 @@ export function murmur3_32(v: string = '', prevRes = 0): number {
   return hash >>> 0;
 }
 
+/**
+ * @ignore
+ * @param str
+ * @param i
+ */
 function getInt32(str: string, i: number) {
   return ((str.charCodeAt(i) & 0xff)) |
   ((str.charCodeAt(i + 1) & 0xff) << 8) |
