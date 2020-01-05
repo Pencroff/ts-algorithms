@@ -354,12 +354,21 @@ describe('linked-list', () => {
   });
 
   it('should iterate elements', () => {
-    const list = new LinkedList(['X', 'Y', 'Z'])
+    const list = new LinkedList(['X', 'Y', 'Z']);
     const mock = jest.fn();
     for (let v of list) {
       mock(v);
     }
     expect(mock.mock.calls).toEqual([['X'], ['Y'], ['Z']]);
+  });
+
+  it('should iterate elements backward', () => {
+    const list = new LinkedList(['X', 'Y', 'Z']);
+    const mock = jest.fn();
+    for (let v of list.backward()) {
+      mock(v);
+    }
+    expect(mock.mock.calls).toEqual([['Z'], ['Y'], ['X']]);
   });
 
   it('should return itself for chaining', () => {
