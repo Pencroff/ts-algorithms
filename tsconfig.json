@@ -16,7 +16,8 @@
   "typedocOptions": {
     "mode": "modules",
     "out": "docs",
-    "hideGenerator": true
+    "hideGenerator": true,
+    "gaID": "UA-155361709-1"
   },
   "include": [
     "src/**/*"
