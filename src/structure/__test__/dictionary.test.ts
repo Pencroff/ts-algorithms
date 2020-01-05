@@ -3,7 +3,7 @@
  */
 
 import { Dictionary } from '../dictionary';
-import { sum32 } from '../../algorithm/hash';
+import { murmur2_32 } from '../../algorithm/hash';
 
 describe('dictionary', () => {
   describe('constructor', () => {
@@ -11,13 +11,13 @@ describe('dictionary', () => {
       const dict = new Dictionary();
       expect(dict.length).toBe(0);
       expect(dict.size).toBe(8);
-      expect(dict.hashFn).toBe(sum32);
+      expect(dict.hashFn).toBe(murmur2_32);
     });
     it('should support size', () => {
       const dict = new Dictionary(null, 16);
       expect(dict.length).toBe(0);
       expect(dict.size).toBe(16);
-      expect(dict.hashFn).toBe(sum32);
+      expect(dict.hashFn).toBe(murmur2_32);
     });
     it('should support config', () => {
       const fn = () => 0;
