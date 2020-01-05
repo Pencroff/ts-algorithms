@@ -7,19 +7,13 @@
  * @param v
  */
 export function sum32(v: string = '', prevRes = 0): number {
-  let sum = typeof prevRes === 'number' && prevRes || 0;
-  for (let char of v) {
-    const characterCode = char.codePointAt(0);
-    if (characterCode > 0x7F) {
-      const str = unescape(encodeURIComponent(char));
-      for (let i = 0; i < str.length; i++) {
-        const characterCode = str.charCodeAt(i);
-        sum += characterCode;
-      }
-    } else {
-      sum += characterCode;
-    }
-    sum = sum >>> 0;
+  let hash = typeof prevRes === 'number' && prevRes || 0;
+  const str = unescape(encodeURIComponent(v));
+  const len = str.length;
+  for (let i = 0; i < len; i += 1) {
+    const code = str.charCodeAt(i);
+    hash += code;
+    hash = hash >>> 0;
   }
-  return sum;
+  return hash;
 }

@@ -14,19 +14,12 @@
 export function fnv1a32(v: string = '', prevRes = 0): number {
   const FNV_OFFSETS = 2166136261;
   let hash = prevRes || FNV_OFFSETS;
-  for (let char of v) {
-    const characterCode = char.codePointAt(0);
-    if (characterCode > 0x7F) {
-      const str = unescape(encodeURIComponent(char));
-      for (let i = 0; i < str.length; i++) {
-        const characterCode = str.charCodeAt(i);
-        hash ^= characterCode;
-        hash += (hash << 1) + (hash << 4) + (hash << 7) + (hash << 8) + (hash << 24);
-      }
-    } else {
-      hash ^= characterCode;
-      hash += (hash << 1) + (hash << 4) + (hash << 7) + (hash << 8) + (hash << 24);
-    }
+  const str = unescape(encodeURIComponent(v));
+  const len = str.length;
+  for (let i = 0; i < len; i += 1) {
+    const code = str.charCodeAt(i);
+    hash ^= code;
+    hash += (hash << 1) + (hash << 4) + (hash << 7) + (hash << 8) + (hash << 24);
     hash = hash >>> 0;
   }
   return hash;
