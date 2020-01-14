@@ -12,7 +12,7 @@
     "prepare": "npm run test && npm run build",
     "test": "jest --coverage",
     "docs": "rimraf ./docs && typedoc && npm run copyAssets",
-    "copyAssets": "cpx CNAME docs && cpx assets/**/*.{svg,png} docs/assets"
+    "copyAssets": "copyfiles CNAME docs && copyfiles assets/**/*.{svg,png} docs"
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,7 @@
   "devDependencies": {
     "@types/jest": "^24.0.23",
     "codecov": "^3.6.1",
-    "cpx": "^1.5.0",
+    "copyfiles": "^2.1.1",
     "jest": "^24.9.0",
     "np": "^4.0.2",
     "rimraf": "^3.0.0",
