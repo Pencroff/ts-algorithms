@@ -2,46 +2,54 @@
  * @module structure
  */
 import { NotImplementedError } from '../error/not-implemented.error';
+import { genericComparator } from '../primitive/comparator';
+import { BinaryHeap, MaxBinaryHeap } from './heap';
 
 export type PriorityTuple<T> = [T, number];
 
-interface PriorityRecord<T> {
-  data: T;
-  priority: number;
-}
-
 export class PriorityQueue<T> {
-  private _list: PriorityRecord<T>[];
+  private _heap: BinaryHeap<[T, number]>;
 
-  constructor(initArr?: PriorityTuple<T>[]) {
-    this._list = [];
+  constructor(
+    initArr?: PriorityTuple<T>[],
+    private asMaxPriority = false
+  ) {
+    if (asMaxPriority) {
+      this._heap = new MaxBinaryHeap(initArr, priorityComparator);
+    } else {
+      this._heap = new BinaryHeap(initArr, priorityComparator);
+    }
   }
 
   get length(): number {
-    return this._list.length;
+    return this._heap.length;
   }
 
-  [Symbol.iterator] (): Iterator<T> {
-    throw new NotImplementedError();
+  [Symbol.iterator](): Iterator<PriorityTuple<T>> {
+    return this._heap[Symbol.iterator]();
   }
 
   isEmpty(): boolean {
-    throw new NotImplementedError();
+    return this._heap.isEmpty();
   }
 
-  enqueue(value: T, priority: number): void {
-    throw new NotImplementedError();
+  enqueue(value: T, priority: number = 0): void {
+    this._heap.insert([value, priority]);
   }
 
   dequeue(): PriorityTuple<T> {
-    throw new NotImplementedError();
+    return this._heap.extract();
   }
 
-  peek(): T {
-    throw new NotImplementedError();
+  peek(): PriorityTuple<T> {
+    return this._heap.peek();
   }
 
   clear(): void {
-    throw new NotImplementedError();
+    this._heap.clear();
   }
+}
+
+function priorityComparator<T>(a: PriorityTuple<T>, b: PriorityTuple<T>) {
+  return genericComparator(a[1], b[1]);
 }
