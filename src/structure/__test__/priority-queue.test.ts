@@ -50,8 +50,8 @@ describe('priority-queue', () => {
     });
     it('should dequeue in correct order', () => {
       expect(q.dequeue()).toEqual(['A', 1]);
-      expect(q.dequeue()).toEqual(['G', 1]);
       expect(q.dequeue()).toEqual(['F', 1]);
+      expect(q.dequeue()).toEqual(['G', 1]);
       expect(q.dequeue()).toEqual(['B', 2]);
       expect(q.dequeue()).toEqual(['D', 2]);
       expect(q.dequeue()).toEqual(['C', 3]);
