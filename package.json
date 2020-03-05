@@ -1,6 +1,6 @@
 {
   "name": "@pencroff/ts-algorithms",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Typescript algorithms and Data Structures",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
