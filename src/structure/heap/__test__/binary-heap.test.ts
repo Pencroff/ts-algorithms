@@ -84,4 +84,9 @@ describe('binary.heap', () => {
     heap.replace(9, 99);
     hasValues(heap, [ 5, 17, 7, 19, 26, 8, 16, 99, 69, 32, 93, 65]);
   });
+  it('should clear data', () => {
+    expect(heap.isEmpty()).toBe(false);
+    heap.clear();
+    expect(heap.isEmpty()).toBe(true);
+  });
 });

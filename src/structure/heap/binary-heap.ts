@@ -164,6 +164,15 @@ export class BinaryHeap<T> implements Iterable<T> {
   }
 
   /**
+   * Clear all values
+   *
+   * Complexity: **O(1)**
+   */
+  clear(): void {
+    this.items.length = 0;
+  }
+
+  /**
    * is empty check
    *
    * Complexity: **O(1)**
