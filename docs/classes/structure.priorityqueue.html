@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Queue | @pencroff/ts-algorithms</title>
+	<title>PriorityQueue | @pencroff/ts-algorithms</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/structure.html">structure</a>
 				</li>
 				<li>
-					<a href="structure.queue.html">Queue</a>
+					<a href="structure.priorityqueue.html">PriorityQueue</a>
 				</li>
 			</ul>
-			<h1>Class Queue&lt;T&gt;</h1>
+			<h1>Class PriorityQueue&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -72,18 +72,16 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<h2 id="queue-fifo-first-in-first-out-">Queue (FIFO - first-in-first-out)</h2>
+						<h2 id="priorityqueue-binary-heap-implementation-">PriorityQueue (binary heap implementation)</h2>
 					</div>
-					<p>In computer science, a queue is a collection of entities that are maintained in a sequence and can be modified
-						by the addition of entities at one end of the sequence and removal from the other end of the sequence. By convention,
-						the end of the sequence at which elements are added is called the back or rear of the queue and the end at which
-						elements are removed is called the head or front of the queue, analogously to the words used when people line up
-						to wait for goods or services. The operation of adding an element to the rear of the queue is known as enqueue,
-						and the operation of removing an element from the front is known as dequeue. Other operations may also be allowed,
-						often including a peek or front operation that returns the value of the next element to be dequeued without
-					dequeuing it.</p>
-					<p><img src="https://thepracticaldev.s3.amazonaws.com/i/lkgf80jmtry868zwknri.png" alt="Queue">
-					source: dev.to</p>
+					<p>In computer science, a priority queue is an abstract data type which is like a regular queue or stack data structure,
+						but where additionally each element has a &quot;priority&quot; associated with it. In a priority queue, an element with high
+						priority is served before an element with low priority. In some implementations, if two elements have the same
+						priority, they are served according to the order in which they were enqueued, while in other implementations,
+					ordering of elements with the same priority is undefined.</p>
+					<h4 id="priority-queue">Priority Queue</h4>
+					<p><img src="https://howtodoinjava.com/wp-content/uploads/2018/10/priority-queue-pattern.png" alt="min heap">
+					source: howtodoinjava.com</p>
 					<h3 id="complexity">Complexity</h3>
 					<table>
 						<thead>
@@ -94,22 +92,17 @@
 							</tr>
 						</thead>
 						<tbody><tr>
-								<td>Access</td>
-								<td><code>O(n)</code></td>
-								<td><code>O(n)</code></td>
+								<td>enqueue</td>
+								<td><code>O(log n)</code></td>
+								<td><code>O(log n)</code></td>
 							</tr>
 							<tr>
-								<td>Search</td>
-								<td><code>O(n)</code></td>
-								<td><code>O(n)</code></td>
-							</tr>
-							<tr>
-								<td>Insert</td>
+								<td>dequeue</td>
 								<td><code>O(1)</code></td>
 								<td><code>O(1)</code></td>
 							</tr>
 							<tr>
-								<td>Delete</td>
+								<td>peek</td>
 								<td><code>O(1)</code></td>
 								<td><code>O(1)</code></td>
 							</tr>
@@ -126,11 +119,10 @@
 					</tbody></table>
 					<h3 id="reference">Reference</h3>
 					<ul>
-						<li><a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)">Queue</a></li>
+						<li><a href="https://en.wikipedia.org/wiki/Priority_queue">PriorityQueue (data structure)</a></li>
 					</ul>
-					<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Queue } <span class="hljs-keyword">from</span> <span class="hljs-string">'@pencroff/ts-algorithms/dist/structure/linked'</span>;
-<span class="hljs-keyword">const</span> q = <span class="hljs-keyword">new</span> Queue([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])</code></pre>
-					<p><strong>Queue</strong> based on <a href="structure.linkedlist.html">LinkedList</a></p>
+					<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { PriorityQueue } <span class="hljs-keyword">from</span> <span class="hljs-string">'@pencroff/ts-algorithms/dist/structure/priority-queue'</span>;
+<span class="hljs-keyword">const</span> q = <span class="hljs-keyword">new</span> PriorityQueue([[<span class="hljs-string">'A'</span>, <span class="hljs-number">1</span>], [<span class="hljs-string">'B'</span>, <span class="hljs-number">2</span>], [<span class="hljs-string">'C'</span>, <span class="hljs-number">3</span>]])</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-type-parameters">
@@ -145,7 +137,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Queue</span>
+						<span class="target">PriorityQueue</span>
 					</li>
 				</ul>
 			</section>
@@ -156,31 +148,31 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="structure.queue.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="structure.priorityqueue.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="structure.queue.html#_list" class="tsd-kind-icon">_list</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="structure.priorityqueue.html#_heap" class="tsd-kind-icon">_heap</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="structure.priorityqueue.html#asmaxpriority" class="tsd-kind-icon">as<wbr>Max<wbr>Priority</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="structure.queue.html#length" class="tsd-kind-icon">length</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="structure.priorityqueue.html#length" class="tsd-kind-icon">length</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.queue.html#___iterator" class="tsd-kind-icon">__@iterator</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.queue.html#clear" class="tsd-kind-icon">clear</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.queue.html#dequeue" class="tsd-kind-icon">dequeue</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.queue.html#enqueue" class="tsd-kind-icon">enqueue</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.queue.html#has" class="tsd-kind-icon">has</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.queue.html#peek" class="tsd-kind-icon">peek</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.queue.html#toarray" class="tsd-kind-icon">to<wbr>Array</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.priorityqueue.html#___iterator" class="tsd-kind-icon">__@iterator</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.priorityqueue.html#clear" class="tsd-kind-icon">clear</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.priorityqueue.html#dequeue" class="tsd-kind-icon">dequeue</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.priorityqueue.html#enqueue" class="tsd-kind-icon">enqueue</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.priorityqueue.html#isempty" class="tsd-kind-icon">is<wbr>Empty</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="structure.priorityqueue.html#peek" class="tsd-kind-icon">peek</a></li>
 							</ul>
 						</section>
 					</div>
@@ -192,32 +184,31 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Queue<span class="tsd-signature-symbol">(</span>initArr<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="structure.queue.html" class="tsd-signature-type">Queue</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Priority<wbr>Queue<span class="tsd-signature-symbol">(</span>initArr<span class="tsd-signature-symbol">?: </span><a href="../modules/structure.html#prioritytuple" class="tsd-signature-type">PriorityTuple</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, asMaxPriority<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="structure.priorityqueue.html" class="tsd-signature-type">PriorityQueue</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/linked/queue.ts#L45">structure/linked/queue.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/priority-queue.ts#L42">structure/priority-queue.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Queue constructor</p>
-								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> initArr: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> initArr: <a href="../modules/structure.html#prioritytuple" class="tsd-signature-type">PriorityTuple</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> asMaxPriority: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>initial data as array</p>
 										</div>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="structure.queue.html" class="tsd-signature-type">Queue</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="structure.priorityqueue.html" class="tsd-signature-type">PriorityQueue</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -225,14 +216,28 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_list" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _list</h3>
-					<div class="tsd-signature tsd-kind-icon">_list<span class="tsd-signature-symbol">:</span> <a href="structure.linkedlist.html" class="tsd-signature-type">LinkedList</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="_heap" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _heap</h3>
+					<div class="tsd-signature tsd-kind-icon">_heap<span class="tsd-signature-symbol">:</span> <a href="structure.binaryheap.html" class="tsd-signature-type">BinaryHeap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/linked/queue.ts#L45">structure/linked/queue.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/priority-queue.ts#L42">structure/priority-queue.ts:42</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="asmaxpriority" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> as<wbr>Max<wbr>Priority</h3>
+					<div class="tsd-signature tsd-kind-icon">as<wbr>Max<wbr>Priority<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/priority-queue.ts#L51">structure/priority-queue.ts:51</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -247,9 +252,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/linked/queue.ts#L55">structure/linked/queue.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/priority-queue.ts#L63">structure/priority-queue.ts:63</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Priority Q size</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
@@ -261,22 +271,22 @@
 					<a name="___iterator" class="tsd-anchor"></a>
 					<h3>__@iterator</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">__@iterator<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">__@iterator<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/structure.html#prioritytuple" class="tsd-signature-type">PriorityTuple</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/linked/queue.ts#L64">structure/linked/queue.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/priority-queue.ts#L72">structure/priority-queue.ts:72</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Queue iterator for iteration across all nodes</p>
+									<p>Iterator over internal collection (not sorted)</p>
 								</div>
 								<p>Complexity: <strong>O(n)</strong></p>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/structure.html#prioritytuple" class="tsd-signature-type">PriorityTuple</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -290,12 +300,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/linked/queue.ts#L120">structure/linked/queue.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/priority-queue.ts#L119">structure/priority-queue.ts:119</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Clear all values in <a href="structure.queue.html">Queue</a></p>
+									<p>Clear Q</p>
 								</div>
 								<p>Complexity: <strong>O(1)</strong></p>
 							</div>
@@ -307,22 +317,22 @@
 					<a name="dequeue" class="tsd-anchor"></a>
 					<h3>dequeue</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">dequeue<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+						<li class="tsd-signature tsd-kind-icon">dequeue<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/structure.html#prioritytuple" class="tsd-signature-type">PriorityTuple</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/linked/queue.ts#L84">structure/linked/queue.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/priority-queue.ts#L101">structure/priority-queue.ts:101</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Take head value from <a href="structure.queue.html">Queue</a></p>
+									<p>Dequeue element from Q (not stable - dequeue order not same with enqueue)</p>
 								</div>
 								<p>Complexity: <strong>O(1)</strong></p>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/structure.html#prioritytuple" class="tsd-signature-type">PriorityTuple</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -330,26 +340,29 @@
 					<a name="enqueue" class="tsd-anchor"></a>
 					<h3>enqueue</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">enqueue<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">enqueue<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, priority<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/linked/queue.ts#L75">structure/linked/queue.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/priority-queue.ts#L92">structure/priority-queue.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Add new value to <a href="structure.queue.html">Queue</a> tail</p>
+									<p>Enqueue element to Q</p>
 								</div>
-								<p>Complexity: <strong>O(1)</strong></p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">T</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> priority: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
 									<div class="tsd-comment tsd-typography">
+										<p>Complexity: <strong>O(log n)</strong></p>
 									</div>
 								</li>
 							</ul>
@@ -358,32 +371,24 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="has" class="tsd-anchor"></a>
-					<h3>has</h3>
+					<a name="isempty" class="tsd-anchor"></a>
+					<h3>is<wbr>Empty</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">has<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Empty<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/linked/queue.ts#L111">structure/linked/queue.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/priority-queue.ts#L81">structure/priority-queue.ts:81</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Determines whether a value is in the <a href="structure.queue.html">Queue</a></p>
+									<p>Check elements availability</p>
 								</div>
-								<p>Complexity: <strong>O(n)</strong></p>
+								<p>Complexity: <strong>O(1)</strong></p>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">T</span></h5>
-									<div class="tsd-comment tsd-typography">
-									</div>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
@@ -392,45 +397,22 @@
 					<a name="peek" class="tsd-anchor"></a>
 					<h3>peek</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">peek<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+						<li class="tsd-signature tsd-kind-icon">peek<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/structure.html#prioritytuple" class="tsd-signature-type">PriorityTuple</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/linked/queue.ts#L95">structure/linked/queue.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/priority-queue.ts#L110">structure/priority-queue.ts:110</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Check value in <a href="structure.queue.html">Queue</a> head without removing it</p>
+									<p>Check element on top of Q</p>
 								</div>
 								<p>Complexity: <strong>O(1)</strong></p>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="toarray" class="tsd-anchor"></a>
-					<h3>to<wbr>Array</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>Array<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Pencroff/ts-algorithms/blob/ea7b12d/src/structure/linked/queue.ts#L129">structure/linked/queue.ts:129</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Export <a href="structure.queue.html">Queue</a> to array</p>
-								</div>
-								<p>Complexity: <strong>O(n)</strong></p>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/structure.html#prioritytuple" class="tsd-signature-type">PriorityTuple</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -479,48 +461,48 @@
 					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="structure.maxbinaryheap.html" class="tsd-kind-icon">Max<wbr>Binary<wbr>Heap</a>
 					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="structure.priorityqueue.html" class="tsd-kind-icon">Priority<wbr>Queue</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="structure.queue.html" class="tsd-kind-icon">Queue</a>
+						<a href="structure.priorityqueue.html" class="tsd-kind-icon">Priority<wbr>Queue</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="structure.queue.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="structure.priorityqueue.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="structure.queue.html#_list" class="tsd-kind-icon">_list</a>
+								<a href="structure.priorityqueue.html#_heap" class="tsd-kind-icon">_heap</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="structure.priorityqueue.html#asmaxpriority" class="tsd-kind-icon">as<wbr>Max<wbr>Priority</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="structure.queue.html#length" class="tsd-kind-icon">length</a>
+								<a href="structure.priorityqueue.html#length" class="tsd-kind-icon">length</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="structure.queue.html#___iterator" class="tsd-kind-icon">__@iterator</a>
+								<a href="structure.priorityqueue.html#___iterator" class="tsd-kind-icon">__@iterator</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="structure.queue.html#clear" class="tsd-kind-icon">clear</a>
+								<a href="structure.priorityqueue.html#clear" class="tsd-kind-icon">clear</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="structure.queue.html#dequeue" class="tsd-kind-icon">dequeue</a>
+								<a href="structure.priorityqueue.html#dequeue" class="tsd-kind-icon">dequeue</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="structure.queue.html#enqueue" class="tsd-kind-icon">enqueue</a>
+								<a href="structure.priorityqueue.html#enqueue" class="tsd-kind-icon">enqueue</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="structure.queue.html#has" class="tsd-kind-icon">has</a>
+								<a href="structure.priorityqueue.html#isempty" class="tsd-kind-icon">is<wbr>Empty</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="structure.queue.html#peek" class="tsd-kind-icon">peek</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="structure.queue.html#toarray" class="tsd-kind-icon">to<wbr>Array</a>
+								<a href="structure.priorityqueue.html#peek" class="tsd-kind-icon">peek</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="structure.queue.html" class="tsd-kind-icon">Queue</a>
+					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="structure.stack.html" class="tsd-kind-icon">Stack</a>
 					</li>
