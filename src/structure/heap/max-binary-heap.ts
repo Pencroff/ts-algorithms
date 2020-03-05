@@ -15,6 +15,6 @@ export class MaxBinaryHeap<T> extends BinaryHeap<T> {
    * @param elB
    */
   protected isCorrectOrder(elA: T, elB: T) {
-    return this.comparator(elA, elB) <= 0;
+    return this.comparator(elA, elB) < 0;
   }
 }

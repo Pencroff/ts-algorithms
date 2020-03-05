@@ -189,7 +189,7 @@ export class BinaryHeap<T> implements Iterable<T> {
    * @param elB
    */
   protected isCorrectOrder(elA: T, elB: T): boolean {
-    return this.comparator(elA, elB) >= 0;
+    return this.comparator(elA, elB) > 0;
   }
 
   // region helper methods
