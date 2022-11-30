@@ -1,4 +1,5 @@
 /**
+ * @packageDocumentation
  * @module structure
  */
 
@@ -29,7 +30,7 @@ export interface DictionaryOptions<T> {
  * @ignore
  */
 class DictionaryRecord<T> {
-  constructor(public hashValue: number, public key?: string, public value?: T) {
+  constructor(public key: string, public value?: T, public hashValue?: number) {
   }
 }
 
@@ -214,7 +215,7 @@ export class Dictionary<T> implements Iterable<[string, T]> {
     if (node) {
       node.value.value = value;
     } else {
-      list.insertLast(new DictionaryRecord(hashValue, key, value));
+      list.insertLast(new DictionaryRecord(key, value, hashValue));
     }
   }
 
@@ -314,13 +315,13 @@ export class Dictionary<T> implements Iterable<[string, T]> {
 
   private createBuckets(newSize: number, oldBuckets?: LinkedList<DictionaryRecord<T>>[]) {
     const newBuckets = new Array(newSize).fill(null).map(() =>
-      new LinkedList<DictionaryRecord<T>>(null, (a, b) => a.hashValue === b.hashValue ? 0 : -1));
+      new LinkedList<DictionaryRecord<T>>(null, (a, b) => a.key === b.key ? 0 : -1));
     if (oldBuckets) {
       for (let bucket of oldBuckets) {
         for (let dictRecord of bucket) {
           const { hashValue, key, value } = dictRecord;
           const bucketIdx = hashValue % newSize;
-          newBuckets[bucketIdx].insertLast(new DictionaryRecord(hashValue, key, value));
+          newBuckets[bucketIdx].insertLast(new DictionaryRecord(key, value, hashValue));
         }
       }
     }
@@ -333,7 +334,7 @@ export class Dictionary<T> implements Iterable<[string, T]> {
     const hashValue = this.hashFn(key);
     const bucketIdx = hashValue % this.size;
     const list = this.buckets[bucketIdx];
-    const node = list.find({ hashValue });
+    const node = list.find({ key });
     return [node, hashValue, list];
   }
 
